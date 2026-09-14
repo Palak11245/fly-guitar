@@ -1,0 +1,813 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="fly-api" content="https://REPLACE-ME.onrender.com">
+<!-- ^ the Render service URL. The page works without it: the set
+     pieces below play from ./pieces/ and only the live brain panel
+     stays empty until the backend answers. -->
+
+<title>Flybrain Guitar</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@500;600;700&display=swap">
+<style>
+  :root{
+    --ground:#06070a; --panel:#0c0e13; --panel-2:#11141c; --line:#1b1f2a;
+    --ink:#e6eaf2; --dim:#98a2b8; --muted:#5f6a80; --faint:#2e3542;
+    --spike:#63e6ff; --go:#4ade80; --warn:#f0b34a; --bad:#ff6b6b;
+    --new:#c084fc;
+  }
+  *{box-sizing:border-box}
+  html,body{height:100%}
+  body{margin:0;background:var(--ground);color:var(--ink);overflow:hidden;
+    font-family:"IBM Plex Sans",system-ui,sans-serif;font-size:15px}
+  .app{height:100vh;display:grid;grid-template-columns:1fr 366px}
+  #stage{position:relative;min-width:0}
+  #stage canvas{display:block}
+  .head{position:absolute;top:0;left:0;right:0;padding:14px 18px;
+    pointer-events:none;z-index:2}
+  .brand{display:flex;align-items:baseline;gap:10px}
+  .brand h1{margin:0;font-size:23px;font-weight:700;letter-spacing:-.02em}
+  .brand h1 em{font-style:italic;font-weight:500;color:var(--dim)}
+  .tag{font-family:"IBM Plex Mono",monospace;font-size:10.5px;
+    letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+  .nowplay{margin-top:4px;font-family:"IBM Plex Mono",monospace;
+    font-size:12.5px;color:var(--dim)} .nowplay b{color:var(--ink)}
+  .origin{margin-top:3px;font-family:"IBM Plex Mono",monospace;
+    font-size:11px;color:var(--muted);max-width:62ch;line-height:1.45}
+  #big{position:absolute;left:18px;bottom:52px;z-index:2;pointer-events:none;
+    font-family:"IBM Plex Mono",monospace}
+  #bignote{font-size:52px;font-weight:600;line-height:1;color:var(--spike);
+    opacity:0;transition:opacity .5s}
+  #bigwhy{font-size:11px;letter-spacing:.16em;text-transform:uppercase;
+    color:var(--new);opacity:0;transition:opacity .5s;margin-top:6px}
+  #conn{position:absolute;bottom:14px;left:18px;font-family:"IBM Plex Mono",monospace;
+    font-size:11px;color:var(--muted);z-index:2}
+  #conn.off{color:var(--bad)}
+  #hint{position:absolute;bottom:14px;right:18px;font-family:"IBM Plex Mono",monospace;
+    font-size:11px;color:var(--muted);z-index:2}
+
+  aside{background:var(--panel);border-left:1px solid var(--line);
+    overflow-y:auto;padding:12px 14px 30px}
+  aside h2{font-family:"IBM Plex Mono",monospace;font-size:10px;
+    letter-spacing:.2em;text-transform:uppercase;color:var(--muted);
+    margin:17px 0 7px;font-weight:500}
+  aside h2:first-child{margin-top:2px}
+  .row{display:flex;justify-content:space-between;align-items:baseline;
+    font-family:"IBM Plex Mono",monospace;font-size:12px;padding:2px 0}
+  .row span{color:var(--dim)} .row b{color:var(--ink);font-weight:500}
+  .note{font-family:"IBM Plex Mono",monospace;font-size:10.5px;
+    color:var(--muted);line-height:1.5;margin:6px 0 0}
+  canvas.panel{width:100%;display:block;background:var(--panel-2);
+    border:1px solid var(--line);border-radius:2px}
+  .bar{height:8px;background:var(--panel-2);border:1px solid var(--line);
+    border-radius:1px;overflow:hidden;margin:2px 0 6px}
+  .bar i{display:block;height:100%;background:var(--spike);width:0;
+    transition:width .12s linear}
+  .bar.warn i{background:var(--warn)} .bar.go i{background:var(--go)}
+  .bar.dead i{background:var(--faint)}
+  .lbl{display:flex;justify-content:space-between;
+    font-family:"IBM Plex Mono",monospace;font-size:11px;color:var(--dim)}
+  .lbl em{font-style:normal;color:var(--muted)}
+  .flag{font-size:9px;letter-spacing:.12em;text-transform:uppercase}
+  .flag.m{color:var(--warn)} .flag.f{color:var(--muted)}
+  .dead{color:var(--muted)}
+</style>
+</head>
+<body>
+<div class="app">
+  <div id="stage">
+    <div class="head">
+      <div class="brand"><h1>Flybrain <em>plays guitar</em></h1>
+        <span class="tag" id="nn">165,122 neurons</span></div>
+      <div class="nowplay" id="nowplay">connecting…</div>
+      <div class="origin" id="origin"></div>
+    </div>
+    <div id="big"><div id="bignote">—</div><div id="bigwhy"></div></div>
+    <div id="conn" class="off">websocket: connecting</div>
+    <div id="hint">click once for sound · drag to orbit</div>
+  </div>
+
+  <aside>
+    <h2>the brain</h2>
+    <canvas class="panel" id="scatter" height="300"></canvas>
+    <p class="note" id="scatternote">Every dot is a neuron at its measured soma
+      coordinate. Lit dots fired in this 20&nbsp;ms window.</p>
+    <div class="row"><span>neurons firing now</span><b id="litn">—</b></div>
+    <div class="row"><span>spikes/sec</span><b id="sps">—</b></div>
+    <div class="row"><span>mean membrane</span><b id="mv">—</b></div>
+    <div class="row"><span>brain time</span><b id="tt">—</b></div>
+
+    <h2>what it hears — johnston's organ</h2>
+    <canvas class="panel" id="bands" height="70"></canvas>
+    <p class="note">Backing track plus its own last note, folded into
+      log&#8209;spaced bands. JO exists and is measured; the
+      band&#8209;to&#8209;neuron order is chosen.</p>
+    <div class="row"><span>JO drive</span><b id="jo">—</b></div>
+
+    <h2>the hands</h2>
+    <div id="dn"></div>
+    <p class="note">A fly frets by DNa02 asymmetry the same way it turns by it.
+      The string and bend are courtship&#8209;song wing MNs, promoted after the
+      walking DNs measured flat. pIP10 — the song command neuron — is the pick.</p>
+
+    <h2>measured flat, driving nothing</h2>
+    <div id="flat"></div>
+    <p class="note">DNa01 and MDN were the design's string and bend. They
+      measure 0&nbsp;Hz under auditory drive, so they were dropped. MN9 is the
+      control that measured flat under vision too.</p>
+
+    <h2>courtship song wing MNs</h2>
+    <div id="song"></div>
+
+    <h2>learning — mushroom body</h2>
+    <div class="row"><span>riffed well</span><b id="rew">—</b></div>
+    <div class="row"><span>learned something new</span><b id="newh">—</b></div>
+    <div class="row"><span>punishments</span><b id="pun">—</b></div>
+    <div class="row"><span>synapses depressed</span><b id="dep">—</b></div>
+    <div class="row"><span>mean KC→MBON gain</span><b id="gain">—</b></div>
+    <p class="note">Dopamine arrives for playing in key on the beat, and again
+      for a move it has never made. Both rewards are
+      <b>invented</b>: a fly has no opinion about music. The depression rule
+      they drive is measured.</p>
+
+    <h2>what it has played</h2>
+    <canvas class="panel" id="roll" height="116"></canvas>
+    <div class="row"><span>notes</span><b id="nnotes">—</b></div>
+    <div class="row"><span>in key</span><b id="inkey">—</b></div>
+    <div class="row"><span>on the beat</span><b id="onbeat">—</b></div>
+    <div class="row"><span>distinct moves</span><b id="moves">—</b></div>
+    <div class="row"><span>chords played</span><b id="chords">—</b></div>
+    <div class="row"><span>piece length</span><b id="plen">—</b></div>
+    <p class="note">The fly composes faster than the simulation runs, so
+      these notes are played back at the tempo they were composed at and
+      looped while it writes more. Every pitch and every gap came out of
+      the brain.</p>
+  </aside>
+</div>
+
+<!-- r149, the last release with a real UMD build.  In r160 three.min.js is a
+     deprecation stub that defines nothing, so THREE comes back undefined and
+     the first WebGLRenderer call throws, taking the whole script - websocket
+     included - down with it. -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/0.149.0/three.min.js"></script>
+<script>
+// Anything from the server that lands in innerHTML goes through this first.
+// set_piece.json and the corpus are operator-supplied, not user-supplied, but
+// a section name must never be able to inject markup into the page.
+function esc(v){return String(v==null?'':v).replace(/[&<>"']/g,
+  c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
+// ---- where the brain lives -------------------------------------------
+//
+// Same origin when the server serves this page itself. For a split deploy -
+// page on a static host, brain on a container host - point it at the backend
+// with either of:
+//
+//   <meta name="fly-api" content="https://fly-guitar.onrender.com">
+//   ...guitar.html?api=https://fly-guitar.onrender.com
+//
+// The trailing slash is trimmed so both spellings work.
+const API = (() => {
+  const q = new URLSearchParams(location.search).get('api');
+  const m = document.querySelector('meta[name="fly-api"]');
+  const v = q || (m && m.content) || window.FLY_API || '';
+  return String(v).replace(/\/+$/, '');
+})();
+const WS_URL = API
+  ? API.replace(/^http/, 'ws') + '/ws'
+  : (location.protocol === 'https:' ? 'wss://' : 'ws://') + location.host + '/ws';
+
+const NOTE_NAMES=["C","C#","D","D#","E","F","F#","G","G#","A","A#","B"];
+let SETUP=null,LAST=null,played=[],strikeFlash=0,whyFlash=0;
+let strings=[],marker=null,fly=null,fretLeg=null,pickLeg=null,
+    amber=null,wings=[],cam=null,scene=null;
+
+const stage=document.getElementById('stage');
+// The sidebar and the socket must survive the 3D failing.  Without this a bad
+// CDN build takes the whole page down and it reads as "websocket: connecting"
+// forever, which points at the socket when the fault is in three.js.
+const HAS3D = (typeof THREE !== 'undefined' && THREE.WebGLRenderer);
+if(!HAS3D){
+  document.getElementById('nowplay').textContent =
+    '3D unavailable (three.js failed to load) — readouts below are still live';
+}
+const renderer=HAS3D?new THREE.WebGLRenderer({antialias:true}):null;
+if(HAS3D){
+  renderer.setPixelRatio(Math.min(devicePixelRatio,2));
+  stage.appendChild(renderer.domElement);
+}
+
+// ---- sidebar ----
+function ctx(id,h){const c=document.getElementById(id),x=c.getContext('2d');
+  const r=Math.min(devicePixelRatio,2);c.width=c.clientWidth*r;c.height=h*r;
+  x.scale(r,r);return [x,c.clientWidth,h];}
+function drawScatter(){
+  const [x,W,H]=ctx('scatter',300);x.clearRect(0,0,W,H);
+  if(!SETUP||!SETUP.soma){x.fillStyle='#5f6a80';x.font='10.5px IBM Plex Mono';
+    x.fillText('no soma coordinates in this build',10,H/2);return;}
+  const S=SETUP.soma, lit=LAST&&LAST.lit?LAST.lit:[];
+  // The resting brain first, in faint amber.  This is the outline: 6000 soma
+  // coordinates at rest trace the actual shape of the CNS, and against a dark
+  // slate it was invisible.
+  x.fillStyle='#6b5a2a';
+  for(const p of S) x.fillRect(6+p[0]*(W-12),6+(1-p[1])*(H-12),1.3,1.3);
+  // Then this window's firing set, as a small bright dot - no bloom.  These
+  // are positions into the soma array, already intersected server-side.
+  x.fillStyle='#63e6ff';
+  for(const i of lit){const p=S[i]; if(!p) continue;
+    x.fillRect(6+p[0]*(W-12),6+(1-p[1])*(H-12),2.1,2.1);}
+}
+function drawBands(){
+  const [x,W,H]=ctx('bands',70);x.clearRect(0,0,W,H);
+  const b=(LAST&&LAST.bands)||[];if(!b.length)return;
+  const mx=Math.max(0.02,...b),w=W/b.length;
+  for(let i=0;i<b.length;i++){const h=(b[i]/mx)*(H-8);
+    x.fillStyle=b[i]/mx>0.6?'#63e6ff':'#2a6a80';x.fillRect(i*w+1,H-h-2,w-2,h);}
+}
+function drawRoll(){
+  const [x,W,H]=ctx('roll',116);x.clearRect(0,0,W,H);
+  if(!played.length){x.fillStyle='#5f6a80';x.font='10.5px IBM Plex Mono';
+    x.fillText('nothing played yet',10,H/2);return;}
+  const r=played.slice(-70);
+  const lo=Math.min(...r.map(n=>n.midi)),hi=Math.max(...r.map(n=>n.midi));
+  const span=Math.max(7,hi-lo);
+  const t0=r[0].start,t1=Math.max(r[r.length-1].start+0.25,t0+1);
+  for(const n of r){
+    const px=((n.start-t0)/(t1-t0))*(W-14)+7;
+    const py=H-8-((n.midi-lo)/span)*(H-20);
+    x.fillStyle=(n.novelty>=0.99)?'#c084fc':'#63e6ff';
+    x.globalAlpha=0.35+0.65*(n.velocity||.5);
+    x.fillRect(px,py-2.5,Math.max(3,(W-14)/r.length*0.75),5);
+  }
+  x.globalAlpha=1;
+}
+function bars(el,obj,scale,cls,flag){
+  const host=document.getElementById(el);host.innerHTML='';
+  for(const k in obj){
+    const v=obj[k],dead=v<1,d=document.createElement('div');
+    d.innerHTML=`<div class="lbl"><em>${esc(k.replace(/^(song_|flat_)/,''))}</em>`+
+      `<span class="${dead?'dead':''}">${v.toFixed(0)} Hz`+
+      (flag?` <span class="flag ${dead?'f':'m'}">${dead?'flat':flag}</span>`:'')+
+      `</span></div><div class="bar ${dead?'dead':(cls||'')}">`+
+      `<i style="width:${Math.min(100,(v/scale)*100)}%"></i></div>`;
+    host.appendChild(d);
+  }
+}
+function paint(){
+  const m=LAST;if(!m)return;
+  document.getElementById('litn').textContent=
+    (m.n_fired||0).toLocaleString()+'  ('+(((m.lit_frac||0)*100).toFixed(1))+'% of sample)';
+  document.getElementById('sps').textContent=Math.round(m.spikes_per_sec||0).toLocaleString();
+  document.getElementById('mv').textContent=(m.mean_mv||0).toFixed(2)+' mV';
+  document.getElementById('tt').textContent=(m.t||0).toFixed(2)+' s';
+  document.getElementById('jo').textContent=(m.jo_hz||0).toFixed(1)+' Hz';
+  if(m.dn)bars('dn',m.dn,450,'go');
+  if(m.flat&&Object.keys(m.flat).length)bars('flat',m.flat,450,'','measuring');
+  if(m.song_mn&&Object.keys(m.song_mn).length)bars('song',m.song_mn,450,'warn','live');
+  if(m.mb){
+    document.getElementById('pun').textContent=m.mb.punishments;
+    document.getElementById('dep').textContent=(m.mb.depressed||0).toLocaleString();
+    document.getElementById('gain').textContent=m.mb.mean_gain;
+  }
+  if(m.report){
+    document.getElementById('nnotes').textContent=m.report.notes;
+    document.getElementById('inkey').textContent=((m.report.in_key||0)*100).toFixed(0)+'%';
+    document.getElementById('onbeat').textContent=((m.report.on_beat||0)*100).toFixed(0)+'%';
+    document.getElementById('moves').textContent=m.report.distinct_moves||0;
+    document.getElementById('chords').textContent=
+      (m.report.chords||0)+' (up to '+(m.report.max_voices||1)+' strings)';
+    const span=played.length>1?(played[played.length-1].start-played[0].start):0;
+    document.getElementById('plen').textContent=
+      played.length+' notes · '+span.toFixed(1)+'s · loop '+perfLoops;
+    document.getElementById('rew').textContent=m.report.riff_hits||0;
+    document.getElementById('newh').textContent=m.report.new_hits||0;
+  }
+  drawScatter();drawBands();drawRoll();
+}
+
+// ---- audio: the browser re-synthesizes with the same algorithm ----
+let AC=null;
+function pluck(hz,dur,vel){
+  if(!AC)return;
+  const sr=AC.sampleRate,N=Math.max(2,Math.round(sr/hz));
+  const n=Math.round(dur*sr),buf=AC.createBuffer(1,n,sr),d=buf.getChannelData(0);
+  const ring=new Float32Array(N);let mean=0;
+  for(let i=0;i<N;i++){ring[i]=Math.random()*2-1;mean+=ring[i];}
+  mean/=N;for(let i=0;i<N;i++)ring[i]-=mean;
+  let idx=0,prev=0;
+  for(let i=0;i<n;i++){const cur=ring[idx];d[i]=Math.tanh(cur*2.4)*vel;
+    ring[idx]=(0.5*(cur+prev))*0.996;prev=cur;idx=(idx+1)%N;}
+  const src=AC.createBufferSource();src.buffer=buf;
+  const g=AC.createGain();g.gain.value=0.3;
+  g.gain.setTargetAtTime(0.0001,AC.currentTime+dur*0.6,0.25);
+  src.connect(g);g.connect(AC.destination);src.start();
+}
+addEventListener('pointerdown',()=>{
+  if(!AC)AC=new (window.AudioContext||window.webkitAudioContext)();
+  if(AC.state==='suspended')AC.resume();
+});
+
+fetch(API + '/setup').then(r=>r.json()).then(s=>{
+  if(!s.ready)return;SETUP=s;
+  document.getElementById('nn').textContent=s.neurons.toLocaleString()+' neurons';
+  document.getElementById('nowplay').innerHTML=
+    `<b>${esc(s.loop.name)}</b> · ${esc(s.loop.key)} `+
+    `${esc(String(s.loop.scale).replace(/_/g,' '))} · `+
+    `${esc(s.loop.tempo)} bpm · ${esc(s.loop.chords.slice(0,8).join('–'))}`;
+  document.getElementById('origin').textContent=s.loop.origin+
+    '. The riff itself is not reproduced — only the scale, the shapes and the feel.';
+  if(!s.soma)document.getElementById('scatternote').textContent=
+    'This build has no soma coordinates, so there is nothing measured to draw.';
+}).catch(()=>{});
+
+function connect(){
+  const ws=new WebSocket(WS_URL);
+  const el=document.getElementById('conn');
+  ws.onopen=()=>{el.textContent='websocket: live';el.classList.remove('off');};
+  ws.onclose=()=>{el.textContent='websocket: reconnecting';el.classList.add('off');
+    setTimeout(connect,1500);};
+  ws.onmessage=e=>{
+    const m=JSON.parse(e.data);LAST=m;
+    if(m.note){
+      // Composed, not performed.  The note goes into the piece; the performer
+      // below is what sounds it.
+      played.push(m.note);if(played.length>900)played.shift();
+    }
+  };
+}
+connect();
+setInterval(paint,120);
+
+// ---- the performer -------------------------------------------------------
+//
+// The fly composes in brain time, where it plays several notes a second and
+// the phrases are continuous.  The simulation runs about twenty times slower
+// than that on a laptop, so sounding each note the instant its packet arrives
+// stretches a real phrase into isolated plinks seconds apart - which is not
+// what it played.
+//
+// So the notes are a SCORE.  This plays that score back at the tempo it was
+// composed at, and loops it while the fly keeps writing more, so the piece
+// grows as you listen.  Nothing is invented here: every note, its pitch, its
+// timing relative to its neighbours and its velocity came out of the brain.
+let perfT0=null, perfIdx=0, perfLoops=0;
+let PIECE=null, pieceSections=[];
+
+// A set piece composed ahead of time by compose.py is minutes of continuous
+// music that never repeats.  Live notes can only loop a ten-second fragment,
+// because playback consumes notes about sixty times faster than the brain
+// produces them.  If a piece exists, that is what gets performed.
+function usePiece(d){
+  if(d && d.ready && d.notes && d.notes.length>8){
+    PIECE=d.notes; pieceSections=d.sections||[];
+    perfT0=null; perfIdx=0;
+    const more=(d.available||1)>1?(' · '+d.available+' pieces'):'';
+    document.getElementById('hint').textContent=
+      esc(d.piece_name||'set piece')+' · '+PIECE.length+' notes · '+
+      (d.seconds||0).toFixed(0)+'s'+more+' · reload for another';
+    return true;
+  }
+  return false;
+}
+
+// Static copies sit next to the page. On a free-tier backend that sleeps,
+// this is what makes the music start immediately instead of after a cold
+// start - the brain panel fills in later, when the backend wakes.
+function localPiece(){
+  const names=['set_piece_a','set_piece_b','set_piece_c'];
+  const pick=names[Math.floor(Math.random()*names.length)];
+  return fetch('./pieces/'+pick+'.json')
+    .then(r=>r.ok?r.json():Promise.reject(r.status))
+    .then(d=>{ d.ready=true; d.piece_name=pick; d.available=names.length;
+               return usePiece(d); });
+}
+
+// Ask the backend first; fall back to the copies shipped beside the page.
+fetch(API + '/piece')
+  .then(r => r.json())
+  .then(d => { if (!usePiece(d)) return localPiece(); })
+  .catch(() => localPiece())
+  .catch(() => {});   // no backend and no local copies: live notes only
+
+function score(){ return PIECE || played; }
+
+function perform(){
+  const S=score();
+  if(!S.length) return;
+  const now=performance.now()/1000;
+  if(perfT0===null){ perfT0 = now - S[0].start; perfIdx = 0; }
+  const head = now - perfT0;
+
+  while(perfIdx < S.length && S[perfIdx].start <= head){
+    const n = S[perfIdx++];
+    // A note is one or more voices sharing a strike. Strummed, not
+    // simultaneous: each string is caught a few ms after the last.
+    const voices = (n.voices && n.voices.length) ? n.voices : [n.midi];
+    const vel = (n.velocity || 0.6) / Math.sqrt(voices.length);
+    voices.forEach((m, j) => {
+      const hz = 440 * Math.pow(2, (m - 69) / 12);
+      setTimeout(() => pluck(hz, Math.max(0.14, n.dur), vel), j * 12);
+    });
+    // the stage follows the performance, so what you see matches what you hear
+    strikeFlash = 1; whyFlash = 1;
+    // light every string the chord uses, not only the root's
+    for(let j=0;j<voices.length;j++){
+      const st = strings[(n.string + j) % strings.length]; if(st) st.vib = 1;
+    }
+    if(LAST){ LAST.neck = n.fret; LAST.string = n.string; }
+    document.getElementById('bignote').textContent =
+      (voices.length > 1
+        ? voices.map(m => NOTE_NAMES[m % 12]).join(' ')
+        : NOTE_NAMES[n.midi % 12] + '  ·  fret ' + n.fret);
+    document.getElementById('bigwhy').textContent =
+      (n.novelty >= 0.99) ? 'learned something new' : '';
+  }
+
+  // End of the score.  A set piece is long enough that starting it over reads
+  // as the piece repeating rather than as a stuck loop; live notes only loop
+  // because there is nothing else to play.
+  if(perfIdx >= S.length){
+    const span = S[S.length-1].start - S[0].start;
+    if(span > 1.5){ perfT0 = now - S[0].start; perfIdx = 0; perfLoops++; }
+  }
+
+  // Which section of the set piece is sounding, for the header.
+  if(PIECE && pieceSections.length){
+    let cur=pieceSections[0];
+    for(const m of pieceSections) if(head >= m.at) cur=m;
+    if(cur && cur.name!==perform._sec){
+      perform._sec=cur.name;
+      document.getElementById('nowplay').innerHTML=
+        `<b>${esc(cur.name)}</b> · ${esc(cur.key)} `+
+        `${esc(String(cur.scale).replace(/_/g,' '))} · ${esc(cur.tempo)} bpm`;
+      document.getElementById('origin').textContent=cur.origin+
+        '. The riff itself is not reproduced — only the scale, the shapes and the feel.';
+    }
+  }
+}
+setInterval(perform, 30);
+
+// ---- 3D stage, last so that a three.js failure cannot stop the socket ----
+if(HAS3D){
+  scene=new THREE.Scene();
+  scene.background=new THREE.Color(0x06070a);
+  scene.fog=new THREE.Fog(0x06070a,11,30);
+  cam=new THREE.PerspectiveCamera(42,1,0.1,120);
+  function resize(){const w=stage.clientWidth,h=stage.clientHeight;
+    renderer.setSize(w,h);cam.aspect=w/h;cam.updateProjectionMatrix();}
+  addEventListener('resize',resize);
+  
+  scene.add(new THREE.AmbientLight(0x3c4660,1.0));
+  const key=new THREE.DirectionalLight(0xfff1d6,2.1);key.position.set(5,8,6);scene.add(key);
+  const rim=new THREE.DirectionalLight(0x63e6ff,1.3);rim.position.set(-6,3,-5);scene.add(rim);
+  amber=new THREE.PointLight(0xff9d4a,0,14);amber.position.set(0,1.2,2.2);scene.add(amber);
+  
+  const floor=new THREE.Mesh(new THREE.PlaneGeometry(80,80),
+    new THREE.MeshStandardMaterial({color:0x090b11,roughness:.95}));
+  floor.rotation.x=-Math.PI/2;floor.position.y=-2.4;scene.add(floor);
+  const cab=new THREE.Mesh(new THREE.BoxGeometry(5.4,3.4,1.7),
+    new THREE.MeshStandardMaterial({color:0x13151c,roughness:.92}));
+  cab.position.set(0,-0.7,-3.6);scene.add(cab);
+  for(const cx of [-1.3,1.3])for(const cy of [0.35,-1.5]){
+    const c=new THREE.Mesh(new THREE.CircleGeometry(.66,30),
+      new THREE.MeshStandardMaterial({color:0x0a0c11,roughness:1}));
+    c.position.set(cx,cy+(-0.7),-2.74);scene.add(c);
+  }
+  
+  // ---- the line on the floor ----
+  //
+  // Drawn to a canvas and used as a texture, so it needs no font loader and
+  // no external asset: the page has no build step and three.js here is the
+  // UMD bundle, without TextGeometry or the font JSON it would require.
+  (function floorText(){
+    const text='Cause why should humans have all the music';
+    const cv=document.createElement('canvas');
+    // 4096 wide so the line fits at full size and stays crisp; at 2048
+    // the fit would shrink it to ~76px and waste the texture's height.
+    cv.width=4096; cv.height=256;
+    const x=cv.getContext('2d');
+    if(!x) return;
+    x.clearRect(0,0,cv.width,cv.height);
+
+    // Fit the font to the canvas instead of assuming one fits.  At 132px this
+    // string needs about 3300px of a 2048px canvas, so it was clipped at both
+    // ends.  Measure, then scale down to sit inside a margin.
+    const margin=64, avail=cv.width-margin*2;
+    let size=132;
+    const setFont=p=>{x.font='600 '+p+'px "IBM Plex Mono", ui-monospace, monospace';};
+    setFont(size);
+    let w=x.measureText(text).width;
+    if(w>avail){ size=Math.max(24,Math.floor(size*avail/w)); setFont(size); }
+    x.textAlign='center'; x.textBaseline='middle';
+    x.shadowColor='rgba(99,230,255,0.85)'; x.shadowBlur=34;
+    x.fillStyle='#cfe9f5';
+    x.fillText(text, cv.width/2, cv.height/2);
+    x.shadowBlur=0;
+    x.fillStyle='rgba(255,255,255,0.28)';
+    x.fillText(text, cv.width/2, cv.height/2);
+
+    const tex=new THREE.CanvasTexture(cv);
+    tex.anisotropy=4;
+    // Plane matches the canvas aspect (2048x256 = 8:1) so the glyphs are not
+    // stretched; 11.5 x 1.44 was 8:1 by luck, this keeps it true if either
+    // dimension changes.
+    const plane=new THREE.Mesh(
+      new THREE.PlaneGeometry(11.5, 11.5 * cv.height / cv.width),
+      new THREE.MeshBasicMaterial({map:tex, transparent:true,
+        opacity:0.92, depthWrite:false}));
+    plane.rotation.x=-Math.PI/2;
+    plane.position.set(0, -2.36, 4.4);   // downstage, in front of the fly
+    scene.add(plane);
+  })();
+
+  // ---- the stage: rock clutter ----
+  //
+  // Scattered from a seeded RNG rather than placed by hand, so the room is
+  // different every reload but never lands a prop on top of the player.
+  (function stageProps(){
+    let s = Math.floor(Math.random() * 1e9);
+    const rnd = () => (s = (s * 1103515245 + 12345) & 0x7fffffff) / 0x7fffffff;
+    const pick = a => a[Math.floor(rnd() * a.length)];
+
+    const dark   = new THREE.MeshStandardMaterial({color:0x14161d,roughness:.9});
+    const metal  = new THREE.MeshStandardMaterial({color:0x9aa2b1,roughness:.3,metalness:.95});
+    const brass  = new THREE.MeshStandardMaterial({color:0xc9a227,roughness:.28,metalness:.9});
+    const rubber = new THREE.MeshStandardMaterial({color:0x0d0f14,roughness:1});
+
+    function ampStack(x,z,ry){
+      const g=new THREE.Group(); g.position.set(x,-2.4,z); g.rotation.y=ry;
+      for(let k=0;k<2;k++){
+        const b=new THREE.Mesh(new THREE.BoxGeometry(2.3,1.5,1.1),dark);
+        b.position.y=0.75+k*1.52; g.add(b);
+        for(const cx of [-0.55,0.55]) for(const cy of [-0.33,0.33]){
+          const c=new THREE.Mesh(new THREE.CircleGeometry(.26,20),rubber);
+          c.position.set(cx,0.75+k*1.52+cy,0.56); g.add(c);
+        }
+      }
+      const led=new THREE.Mesh(new THREE.SphereGeometry(.05,8,6),
+        new THREE.MeshBasicMaterial({color:0xff3b3b}));
+      led.position.set(0.9,2.2,0.57); g.add(led);
+      return g;
+    }
+
+    function micStand(x,z){
+      const g=new THREE.Group(); g.position.set(x,-2.4,z);
+      const base=new THREE.Mesh(new THREE.CylinderGeometry(.34,.38,.07,18),dark);
+      g.add(base);
+      const pole=new THREE.Mesh(new THREE.CylinderGeometry(.045,.045,3.0,10),metal);
+      pole.position.y=1.5; g.add(pole);
+      const boom=new THREE.Mesh(new THREE.CylinderGeometry(.035,.035,1.1,10),metal);
+      boom.position.set(.42,2.9,0); boom.rotation.z=Math.PI/2.4; g.add(boom);
+      const mic=new THREE.Mesh(new THREE.CylinderGeometry(.085,.075,.3,12),dark);
+      mic.position.set(.86,2.66,0); mic.rotation.z=Math.PI/2.4; g.add(mic);
+      return g;
+    }
+
+    function cymbal(x,z,r){
+      const g=new THREE.Group(); g.position.set(x,-2.4,z);
+      const pole=new THREE.Mesh(new THREE.CylinderGeometry(.03,.03,1.9,8),metal);
+      pole.position.y=.95; g.add(pole);
+      const c=new THREE.Mesh(new THREE.CylinderGeometry(r,r,.022,28),brass);
+      c.position.y=1.92; c.rotation.z=0.09; g.add(c);
+      return g;
+    }
+
+    function flightCase(x,z,ry){
+      const g=new THREE.Group(); g.position.set(x,-2.4,z); g.rotation.y=ry;
+      const b=new THREE.Mesh(new THREE.BoxGeometry(1.5,.85,.95),dark);
+      b.position.y=.43; g.add(b);
+      for(const sx of [-.72,.72]){
+        const e=new THREE.Mesh(new THREE.BoxGeometry(.06,.9,1.0),metal);
+        e.position.set(sx,.43,0); g.add(e);
+      }
+      return g;
+    }
+
+    function speakerCab(x,z,ry){
+      const g=new THREE.Group(); g.position.set(x,-2.4,z); g.rotation.y=ry;
+      const b=new THREE.Mesh(new THREE.BoxGeometry(1.2,2.6,1.0),dark);
+      b.position.y=1.3; g.add(b);
+      return g;
+    }
+
+    // A ring of candidate spots well clear of the fly and the guitar.
+    const spots=[];
+    for(let k=0;k<11;k++){
+      const a=(k/11)*Math.PI*2 + rnd()*0.22;
+      const rad=7.0+rnd()*4.5;
+      const x=Math.sin(a)*rad, z=Math.cos(a)*rad;
+      if(Math.abs(x)<3.4 && z>-1.5 && z<4.5) continue;   // keep the front clear
+      spots.push([x,z,-a+Math.PI]);
+    }
+    const makers=[ampStack,flightCase,speakerCab,
+                  (x,z)=>micStand(x,z), (x,z)=>cymbal(x,z,0.55+rnd()*0.35)];
+    for(const [x,z,ry] of spots){
+      if(rnd()<0.24) continue;                            // leave gaps
+      scene.add(pick(makers)(x,z,ry));
+    }
+
+    // Cables snaking across the floor.
+    for(let k=0;k<4;k++){
+      const pts=[];
+      let cx=-6+rnd()*12, cz=1.5+rnd()*7;
+      for(let j=0;j<7;j++){
+        pts.push(new THREE.Vector3(cx,-2.36,cz));
+        cx+=(rnd()-0.5)*2.6; cz+=(rnd()-0.35)*1.5;
+      }
+      const curve=new THREE.CatmullRomCurve3(pts);
+      const tube=new THREE.Mesh(new THREE.TubeGeometry(curve,44,0.035,6,false),rubber);
+      scene.add(tube);
+    }
+
+    // A couple of stray picks on the floor, because of course.
+    for(let k=0;k<3;k++){
+      const p=new THREE.Mesh(new THREE.CircleGeometry(.09,3),
+        new THREE.MeshStandardMaterial({color:pick([0xd81e3f,0xf0b34a,0xf2f4f8]),
+          roughness:.45,side:THREE.DoubleSide}));
+      p.rotation.x=-Math.PI/2; p.rotation.z=rnd()*3;
+      p.position.set(-3+rnd()*6,-2.37,2+rnd()*3.5); scene.add(p);
+    }
+  })();
+
+  // ---- guitar ----
+  const G=new THREE.Group();scene.add(G);
+  G.position.set(0,-0.1,0);G.rotation.z=-0.28;
+  const NECK_LEN=6.4,NECK_W=0.9,N_STR=6,N_FRET=22;
+  // .position.set, never Object.assign: three.js defines position as a
+  // read-only property, so Object.assign(mesh,{position:...}) throws a
+  // TypeError and takes the whole 3D block with it.
+  const neck=new THREE.Mesh(new THREE.BoxGeometry(NECK_LEN,0.17,NECK_W),
+    new THREE.MeshStandardMaterial({color:0x2a1b12,roughness:.72}));
+  neck.position.set(-NECK_LEN/2,0,0); G.add(neck);
+  const bodyMat=new THREE.MeshStandardMaterial({color:0x8c1717,roughness:.3,metalness:.4});
+  for(const s of [1,-1]){
+    const v=new THREE.Mesh(new THREE.BoxGeometry(2.7,0.32,1.1),bodyMat);
+    v.position.set(1.35,0,s*0.66);v.rotation.y=s*0.42;G.add(v);
+  }
+  const bridge=new THREE.Mesh(new THREE.BoxGeometry(0.2,0.22,NECK_W),
+    new THREE.MeshStandardMaterial({color:0x9aa0ad,metalness:.9,roughness:.22}));
+  bridge.position.set(0.52,0.1,0); G.add(bridge);
+  for(let f=1;f<=N_FRET;f++){
+    const m=new THREE.Mesh(new THREE.BoxGeometry(0.035,0.05,NECK_W),
+      new THREE.MeshStandardMaterial({color:0xb9c0cc,metalness:.85,roughness:.28}));
+    m.position.set(-NECK_LEN*(f/N_FRET),0.09,0);G.add(m);
+  }
+  marker=new THREE.Mesh(new THREE.CircleGeometry(0.17,24),
+    new THREE.MeshBasicMaterial({color:0x63e6ff,transparent:true,opacity:.8}));
+  marker.rotation.x=-Math.PI/2;marker.position.y=0.105;G.add(marker);
+  strings=[];
+  for(let s=0;s<N_STR;s++){
+    const z=(s-(N_STR-1)/2)*(NECK_W/N_STR),r=0.011+0.007*(N_STR-1-s)/5;
+    const m=new THREE.Mesh(new THREE.CylinderGeometry(r,r,NECK_LEN+1.1,6),
+      new THREE.MeshStandardMaterial({color:0xd8c48a,metalness:.85,roughness:.28,
+        emissive:new THREE.Color(0x63e6ff),emissiveIntensity:0}));
+    m.rotation.z=Math.PI/2;m.position.set(-NECK_LEN/2+0.55,0.12,z);
+    G.add(m);strings.push({mesh:m,z,vib:0});
+  }
+  
+  // ---- fly ----
+  fly=new THREE.Group();scene.add(fly);fly.position.set(-0.3,0.95,1.05);
+  const chitin=new THREE.MeshStandardMaterial({color:0x272b36,roughness:.42,metalness:.38});
+  const ab=new THREE.Mesh(new THREE.SphereGeometry(0.54,26,20),chitin);
+  ab.scale.set(1.55,.86,.86);ab.position.x=-.58;fly.add(ab);
+  const th=new THREE.Mesh(new THREE.SphereGeometry(0.44,26,20),chitin);
+  th.scale.set(1.12,1,1);fly.add(th);
+  const hd=new THREE.Mesh(new THREE.SphereGeometry(0.31,24,18),chitin);
+  hd.position.x=.6;fly.add(hd);
+  // ---- the drip ----
+  const leather=new THREE.MeshStandardMaterial({color:0x121218,roughness:.34,metalness:.5});
+  const chrome =new THREE.MeshStandardMaterial({color:0xd8dce6,roughness:.16,metalness:1});
+  const paintR =new THREE.MeshStandardMaterial({color:0xd81e3f,roughness:.5,
+    emissive:0x5a0a18,emissiveIntensity:.5});
+  const paintW =new THREE.MeshStandardMaterial({color:0xf2f4f8,roughness:.55});
+
+  wings=[];
+  for(const s of [1,-1]){
+    // Compound eye, then the shades over it.
+    const e=new THREE.Mesh(new THREE.SphereGeometry(0.21,20,16),
+      new THREE.MeshStandardMaterial({color:0x8f1d1d,roughness:.22,metalness:.5}));
+    e.position.set(.68,.06,s*.21);fly.add(e);
+
+    // Wings: opaque enough to actually read against a dark stage, angled up
+    // and back like a folded pair rather than lying flat where they vanished.
+    const w=new THREE.Mesh(new THREE.PlaneGeometry(1.6,.72),
+      new THREE.MeshStandardMaterial({color:0xdCEAF7,transparent:true,opacity:.62,
+        side:THREE.DoubleSide,roughness:.06,metalness:.2,
+        emissive:0x2a4a66,emissiveIntensity:.45}));
+    w.position.set(-.62,.52,s*.26);
+    w.rotation.set(Math.PI/2.9,0,s*.34);
+    fly.add(w);wings.push({mesh:w,s});
+    // a chitin vein along the leading edge, so the wing has an outline
+    const vein=new THREE.Mesh(new THREE.CylinderGeometry(.018,.012,1.55,5),chitin);
+    vein.position.copy(w.position); vein.rotation.set(0,0,Math.PI/2+s*0.06);
+    vein.position.y+=0.02; fly.add(vein);
+
+    // Antennae - where Johnston's Organ actually is, so they stay.
+    const a=new THREE.Mesh(new THREE.CylinderGeometry(.02,.015,.34,6),chitin);
+    a.position.set(.78,.2,s*.1);a.rotation.set(0,0,-0.7+s*0.1);fly.add(a);
+
+    // Face paint: a vertical stripe down each side of the head.
+    const st=new THREE.Mesh(new THREE.BoxGeometry(.045,.34,.10),
+                            s>0?paintR:paintW);
+    st.position.set(.72,.02,s*.13); fly.add(st);
+
+    // Spiked wristband studs on the shoulders.
+    for(let k=-1;k<=1;k++){
+      const sp=new THREE.Mesh(new THREE.ConeGeometry(.035,.1,5),chrome);
+      sp.position.set(.02+k*.13,.30,s*.34); sp.rotation.z=s*0.25; fly.add(sp);
+    }
+  }
+
+  // Wraparound shades: one dark visor bridging both eyes.
+  const shades=new THREE.Mesh(new THREE.BoxGeometry(.14,.17,.62),
+    new THREE.MeshStandardMaterial({color:0x08080c,roughness:.08,metalness:.95}));
+  shades.position.set(.74,.10,0); fly.add(shades);
+  for(const s of [1,-1]){   // chrome rims
+    const rim2=new THREE.Mesh(new THREE.BoxGeometry(.03,.19,.27),chrome);
+    rim2.position.set(.80,.10,s*.17); fly.add(rim2);
+  }
+
+  // Top hat, tilted.
+  const hat=new THREE.Group(); hat.position.set(.60,.30,0); hat.rotation.z=-0.32;
+  const brim=new THREE.Mesh(new THREE.CylinderGeometry(.42,.42,.035,26),leather);
+  hat.add(brim);
+  const crown=new THREE.Mesh(new THREE.CylinderGeometry(.25,.27,.46,26),leather);
+  crown.position.y=.24; hat.add(crown);
+  const band=new THREE.Mesh(new THREE.CylinderGeometry(.272,.272,.09,26),paintR);
+  band.position.y=.07; hat.add(band);
+  const buckle=new THREE.Mesh(new THREE.BoxGeometry(.05,.09,.09),chrome);
+  buckle.position.set(.25,.07,0); hat.add(buckle);
+  fly.add(hat);
+
+  // Studded collar round the thorax.
+  const collar=new THREE.Mesh(new THREE.TorusGeometry(.40,.055,8,22),leather);
+  collar.position.set(.28,.02,0); collar.rotation.y=Math.PI/2; fly.add(collar);
+  for(let k=0;k<10;k++){
+    const ang=k/10*Math.PI*2;
+    const stud=new THREE.Mesh(new THREE.ConeGeometry(.04,.11,5),chrome);
+    stud.position.set(.28,Math.sin(ang)*.42,Math.cos(ang)*.42);
+    stud.rotation.set(Math.PI/2,0,0);
+    stud.lookAt(new THREE.Vector3(.28,Math.sin(ang)*2,Math.cos(ang)*2));
+    fly.add(stud);
+  }
+
+  // Leather vest over the abdomen.
+  const vest=new THREE.Mesh(new THREE.SphereGeometry(0.50,22,16),leather);
+  vest.scale.set(1.2,.80,.92); vest.position.x=-.42; fly.add(vest);
+  function leg(){const g=new THREE.Group();
+    const u=new THREE.Mesh(new THREE.CylinderGeometry(.05,.04,.64,8),chitin);
+    u.position.y=-.32;g.add(u);
+    const lo=new THREE.Group();lo.position.y=-.64;
+    const f=new THREE.Mesh(new THREE.CylinderGeometry(.04,.028,.6,8),chitin);
+    f.position.y=-.3;lo.add(f);g.add(lo);g.lower=lo;return g;}
+  fretLeg=leg();pickLeg=leg();
+  fretLeg.position.set(.34,-.22,.32);pickLeg.position.set(.06,-.22,-.36);
+  fly.add(fretLeg);fly.add(pickLeg);
+  
+  // ---- orbit ----
+  let camA=0,drag=false,px=0,manual=0;
+  renderer.domElement.addEventListener('pointerdown',e=>{drag=true;px=e.clientX;});
+  addEventListener('pointerup',()=>drag=false);
+  addEventListener('pointermove',e=>{if(drag){manual+=(e.clientX-px)*0.006;px=e.clientX;}});
+  
+  function tick(){
+    requestAnimationFrame(tick);
+    const now=performance.now()/1000;
+    camA+=0.0014;
+    const A=camA+manual;
+    cam.position.set(Math.sin(A)*7.8,2.6+Math.sin(camA*.6)*.55,Math.cos(A)*7.8+1.1);
+    cam.lookAt(0,-0.1,0);
+    if(LAST){
+      const frac=Math.min(1,Math.max(0,(LAST.neck||0)/N_FRET));
+      const tx=-NECK_LEN*frac;
+      marker.position.x+=(tx-marker.position.x)*0.22;
+      const zi=(LAST.string!=null)?(LAST.string-(N_STR-1)/2)*(NECK_W/N_STR):0;
+      marker.position.z+=(zi-marker.position.z)*0.22;
+      marker.material.opacity=0.3+0.55*Math.min(1,(LAST.strike_hz||0)/
+        ((SETUP&&SETUP.strike_hz)||25)/4);
+      fretLeg.position.x+=((0.34+tx*0.4)-fretLeg.position.x)*0.14;
+      fretLeg.lower.rotation.z=Math.sin(now*2)*0.05-frac*0.42;
+      // Wings beat harder the louder it hears, and kick on every pick.
+      const wob=0.35+0.65*Math.min(1,(LAST.jo_hz||0)/90)+strikeFlash*0.8;
+      for(const w of wings)
+        w.mesh.rotation.z=w.s*(0.34+Math.sin(now*22)*0.30*wob);
+    }
+    strikeFlash=Math.max(0,strikeFlash-0.05);
+    amber.intensity=strikeFlash*2.4;
+    pickLeg.lower.rotation.z=-strikeFlash*1.3;
+    for(const s of strings){
+      s.vib=Math.max(0,s.vib-0.03);
+      s.mesh.position.y=0.12+Math.sin(now*70+s.z*30)*0.032*s.vib;
+      s.mesh.material.emissiveIntensity=s.vib*0.9;
+    }
+    fly.position.y=0.95+Math.sin(now*1.5)*0.035;
+    whyFlash=Math.max(0,whyFlash-0.006);
+    document.getElementById('bignote').style.opacity=whyFlash>0?1:0;
+    document.getElementById('bigwhy').style.opacity=whyFlash>0?1:0;
+    renderer.render(scene,cam);
+  }
+  resize();tick();
+}
+</script>
+</body>
+</html>

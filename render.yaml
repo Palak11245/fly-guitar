@@ -1,0 +1,74 @@
+# Render blueprint for the guitar server.
+#
+#   Render dashboard -> New -> Blueprint -> point at this repo.
+#
+# Render Web Services are persistent containers, not serverless, so the
+# simulation keeps running between requests and the websocket stays open.
+# That is the whole requirement, and it is why Vercel and other request-scoped
+# platforms cannot host this: the fly has to keep playing.
+#
+# THE ONE THING TO SORT OUT FIRST
+#
+# The server needs two files that are not in git (52 MB together):
+#
+#   build/graph.npz                  38 MB   the brain
+#   data/body-annotations.feather    14 MB   soma sides and coordinates
+#
+# There is no scp on Render, so pick one:
+#
+#   a) Commit them. Both are under GitHub's 100 MB per-file limit and the repo
+#      is private. Simplest thing that works; costs 52 MB of repo. Drop the
+#      two ignore rules in .gitignore and commit.
+#
+#   b) Attach the disk below and upload once through the Render shell. Keeps
+#      the repo clean and survives restarts, which also means the music the
+#      fly composes live is still there after a redeploy.
+#
+# (b) is set up here because it also preserves set_piece_live.json.
+services:
+  - type: web
+    name: fly-guitar
+    runtime: python
+    plan: standard          # 2 GB. It measures ~352 MB, so starter's 512 MB
+                            # fits but leaves little headroom.
+    buildCommand: pip install -r requirements-guitar.txt
+    startCommand: python guitarist.py
+    healthCheckPath: /setup
+    envVars:
+      # Must bind all interfaces here; the default is loopback, which is the
+      # right default everywhere else and wrong inside a container.
+      - key: FLY_GUITAR_HOST
+        value: 0.0.0.0
+      - key: PYTHON_VERSION
+        value: "3.12"
+    disk:
+      name: brain
+      mountPath: /opt/render/project/src/build
+      sizeGB: 1
+    autoDeploy: true
+
+# After the first deploy, open the Render shell and put the brain in place:
+#
+#   # from your own machine, get the files somewhere fetchable, e.g. a
+#   # GitHub release on this repo, then in the Render shell:
+#   cd /opt/render/project/src
+#   curl -L -o build/graph.npz <url-to-graph.npz>
+#   mkdir -p data && curl -L -o data/body-annotations.feather <url-to-annotations>
+#
+# Then restart the service. Check it came up with:
+#
+#   curl -s $RENDER_EXTERNAL_URL/setup | head -c 200
+#
+# "soma": null means body-annotations.feather did not arrive and the neuron
+# scatter will be empty. A 500 on /setup means build/graph.npz is missing.
+#
+# NOTE ON THE DISK MOUNT
+# It mounts over build/, which is where the committed set pieces live. Copy
+# them onto the disk once, or they will be hidden by the mount:
+#
+#   git show HEAD:build/set_piece_a.json > build/set_piece_a.json
+#   git show HEAD:build/set_piece_b.json > build/set_piece_b.json
+#   git show HEAD:build/set_piece_c.json > build/set_piece_c.json
+#
+# With the disk attached, set_piece_live.json - the music it writes while
+# deployed - also survives restarts and keeps accumulating.

@@ -1,0 +1,128 @@
+[
+  {
+    "name": "arpeggio climb",
+    "idiom": "Guns N' Roses",
+    "origin": "original, written in the idiom of Guns N' Roses",
+    "key": "D",
+    "scale": "major_pentatonic",
+    "tempo": 128,
+    "chords": [
+      "I",
+      "V",
+      "vi",
+      "IV"
+    ],
+    "feel": "arpeggiated triads sequenced up the neck",
+    "notes": "Triad tones picked one to a beat, the shape moving up a position each bar.  Major pentatonic over a I-V-vi-IV loop.",
+    "neck_home": 5
+  },
+  {
+    "name": "downbeat stomp",
+    "idiom": "KISS",
+    "origin": "original, written in the idiom of KISS",
+    "key": "A",
+    "scale": "minor_pentatonic",
+    "tempo": 116,
+    "chords": [
+      "I",
+      "bVII",
+      "IV"
+    ],
+    "feel": "mid-tempo, weight on the downbeat",
+    "notes": "Pentatonic box one, root on the low E, every phrase landing on beat one.  I-bVII-IV, the flat-seventh move.",
+    "neck_home": 5
+  },
+  {
+    "name": "quiet loud",
+    "idiom": "Nirvana",
+    "origin": "original, written in the idiom of Nirvana",
+    "key": "F",
+    "scale": "aeolian",
+    "tempo": 118,
+    "chords": [
+      "i",
+      "iv",
+      "bIII",
+      "bVI"
+    ],
+    "feel": "rootless power-chord shapes, loud/quiet",
+    "notes": "Two-note shapes, no third, shifted by a tritone and a minor second.  Dynamics swing hard between verse and chorus.",
+    "neck_home": 5
+  },
+  {
+    "name": "twelve bar",
+    "idiom": "the blues the other three came out of",
+    "origin": "original, written in the idiom of the blues the other three came out of",
+    "key": "E",
+    "scale": "blues",
+    "tempo": 104,
+    "chords": [
+      "I",
+      "I",
+      "I",
+      "I",
+      "IV",
+      "IV",
+      "I",
+      "I",
+      "V",
+      "IV",
+      "I",
+      "V"
+    ],
+    "feel": "shuffle",
+    "notes": "A twelve bar in E.  Public domain form, here so the corpus has one loop whose harmony moves slowly enough to hear the fly follow it.",
+    "neck_home": 0
+  },
+  {
+    "name": "gallop",
+    "idiom": "Iron Maiden",
+    "origin": "original, written in the idiom of Iron Maiden",
+    "key": "E",
+    "scale": "aeolian",
+    "tempo": 168,
+    "chords": [
+      "i",
+      "bVI",
+      "bVII",
+      "i"
+    ],
+    "feel": "fast triplet gallop, high on the neck",
+    "notes": "Minor runs taken quickly, the harmony climbing bVI-bVII back to the root.  Fastest thing in the corpus and the highest register.",
+    "neck_home": 14
+  },
+  {
+    "name": "slow burn",
+    "idiom": "Black Sabbath",
+    "origin": "original, written in the idiom of Black Sabbath",
+    "key": "G",
+    "scale": "aeolian",
+    "tempo": 72,
+    "chords": [
+      "i",
+      "bIII",
+      "iv",
+      "i"
+    ],
+    "feel": "half time, heavy, low and slow",
+    "notes": "The slowest loop, sitting on the low strings.  Against the gallop it is unmistakably a different piece rather than the same one rephrased.",
+    "neck_home": 2
+  },
+  {
+    "name": "mixolydian strut",
+    "idiom": "AC/DC",
+    "origin": "original, written in the idiom of AC/DC",
+    "key": "A",
+    "scale": "mixolydian",
+    "tempo": 136,
+    "chords": [
+      "I",
+      "bVII",
+      "IV",
+      "I"
+    ],
+    "feel": "open-string strut, major with a flat seven",
+    "notes": "Major third and a flat seventh - the one loop here that is not minor, so it reads as bright next to everything else.",
+    "neck_home": 7
+  }
+]

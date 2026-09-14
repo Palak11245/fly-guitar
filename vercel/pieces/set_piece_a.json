@@ -1,0 +1,3183 @@
+{
+ "notes": [
+  {
+   "midi": 51,
+   "voices": [
+    51
+   ],
+   "recruited": 0,
+   "art": "mute",
+   "bend": 0.0,
+   "vibrato": 0.0,
+   "string": 1,
+   "fret": 6,
+   "start": 0.06,
+   "dur": 0.2542,
+   "velocity": 0.2,
+   "hz": 155.56,
+   "novelty": 1.0
+  },
+  {
+   "midi": 51,
+   "voices": [
+    51,
+    55,
+    58,
+    61
+   ],
+   "recruited": 3,
+   "art": "strum",
+   "bend": 0.0,
+   "vibrato": 0.0,
+   "string": 2,
+   "fret": 1,
+   "start": 0.14,
+   "dur": 0.2542,
+   "velocity": 0.2,
+   "hz": 155.56,
+   "novelty": 1.0
+  },
+  {
+   "midi": 60,
+   "voices": [
+    60,
+    67
+   ],
+   "recruited": 1,
+   "art": "mute",
+   "bend": 0.0,
+   "vibrato": 0.0,
+   "string": 4,
+   "fret": 1,
+   "start": 0.3,
+   "dur": 0.2542,
+   "velocity": 0.2,
+   "hz": 261.63,
+   "novelty": 1.0
+  },
+  {
+   "midi": 41,
+   "voices": [
+    41
+   ],
+   "recruited": 0,
+   "art": "mute",
+   "bend": 0.0,
+   "vibrato": 0.0,
+   "string": 0,
+   "fret": 1,
+   "start": 0.58,
+   "dur": 0.2542,
+   "velocity": 0.2,
+   "hz": 87.31,
+   "novelty": 1.0
+  },
+  {
+   "midi": 58,
+   "voices": [
+    58,
+    65,
+    70
+   ],
+   "recruited": 2,
+   "art": "mute",
+   "bend": 0.0,
+   "vibrato": 0.0,
+   "string": 3,
+   "fret": 3,
+   "start": 0.7,
+   "dur": 0.2542,
+   "velocity": 0.2,
+   "hz": 233.08,
+   "novelty": 1.0
+  },
+  {
+   "midi": 46,
+   "voices": [
+    46
+   ],
+   "recruited": 0,
+   "art": "mute",
+   "bend": 0.0,
+   "vibrato": 0.0,
+   "string": 1,
+   "fret": 1,
+   "start": 0.82,
+   "dur": 0.2542,
+   "velocity": 0.2,
+   "hz": 116.54,
+   "novelty": 1.0
+  },
+  {
+   "midi": 51,
+   "voices": [
+    51
+   ],
+   "recruited": 0,
+   "art": "legato",
+   "bend": 0.0,
+   "vibrato": 0.0,
+   "string": 2,
+   "fret": 1,
+   "start": 0.86,
+   "dur": 0.2542,
+   "velocity": 0.2,
+   "hz": 155.56,
+   "novelty": 1.0
+  },
+  {
+   "midi": 51,
+   "voices": [
+    51
+   ],
+   "recruited": 0,
+   "art": "mute",
+   "bend": 0.0,
+   "vibrato": 0.0,
+   "string": 2,
+   "fret": 1,
+   "start": 0.94,
+   "dur": 0.2542,
+   "velocity": 0.2,
+   "hz": 155.56,
+   "novelty": 0.516
+  },
+  {
+   "midi": 51,
+   "voices": [
+    51
+   ],
+   "recruited": 0,
+   "art": "legato",
+   "bend": 0.0,
+   "vibrato": 0.0,
+   "string": 2,
+   "fret": 1,
+   "start": 0.98,
+   "dur": 0.2542,
+   "velocity": 0.2,
+   "hz": 155.56,
+   "novelty": 0.259
+  },
+  {
+   "midi": 46,
+   "voices": [
+    46,
+    49,
+    53,
+    56
+   ],
+   "recruited": 3,
+   "art": "strum",
+   "bend": 0.0,
+   "vibrato": 0.0,
+   "string": 1,
+   "fret": 1,
+   "start": 1.12,
+   "dur": 0.2542,
+   "velocity": 0.2,
+   "hz": 116.54,
+   "novelty": 1.0
+  },
+  {
+   "midi": 53,
+   "voices": [
+    53
+   ],
+   "recruited": 0,
+   "art": "mute",
+   "bend": 1.0,
+   "vibrato": 0.0,
+   "string": 2,
+   "fret": 3,
+   "start": 1.22,
+   "dur": 0.2542,
+   "velocity": 0.2,
+   "hz": 174.61,
+   "novelty": 1.0
+  },
+  {
+   "midi": 46,
+   "voices": [
+    46,
+    53,
+    58
+   ],
+   "recruited": 2,
+   "art": "mute",
+   "bend": 0.0,
+   "vibrato": 0.0,
+   "string": 1,
+   "fret": 1,
+   "start": 1.4,
+   "dur": 0.2542,
+   "velocity": 0.2,
+   "hz": 116.54,
+   "novelty": 1.0
+  },
+  {
+   "midi": 46,
+   "voices": [
+    46,
+    49,
+    53,
+    56
+   ],
+   "recruited": 3,
+   "art": "strum",
+   "bend": 0.0,
+   "vibrato": 0.0,
+   "string": 1,
+   "fret": 1,
+   "start": 1.5,
+   "dur": 0.2542,
+   "velocity": 0.2,
+   "hz": 116.54,
+   "novelty": 1.0
+  },
+  {
+   "midi": 46,
+   "voices": [
+    46,
+    49,
+    53,
+    56
+   ],
+   "recruited": 3,
+   "art": "strum",
+   "bend": 0.0,
+   "vibrato": 0.0,
+   "string": 1,
+   "fret": 1,
+   "start": 1.54,
+   "dur": 0.2542,
+   "velocity": 0.2,
+   "hz": 116.54,
+   "novelty": 0.501
+  },
+  {
+   "midi": 60,
+   "voices": [
+    60
+   ],
+   "recruited": 0,
+   "art": "legato",
+   "bend": 0.0,
+   "vibrato": 0.0,
+   "string": 4,
+   "fret": 1,
+   "start": 1.58,
+   "dur": 0.2542,
+   "velocity": 0.2,
+   "hz": 261.63,
+   "novelty": 1.0
+  },
+  {
+   "midi": 58,
+   "voices": [
+    58
+   ],
+   "recruited": 0,
+   "art": "mute",
+   "bend": 1.0,
+   "vibrato": 0.35,
+   "string": 3,
+   "fret": 3,
+   "start": 1.66,
+   "dur": 0.2542,
+   "velocity": 0.2,
+   "hz": 233.08,
+   "novelty": 1.0
+  },
+  {
+   "midi": 46,
+   "voices": [
+    46
+   ],
+   "recruited": 0,
+   "art": "legato",
+   "bend": 0.0,
+   "vibrato": 0.0,
+   "string": 1,
+   "fret": 1,
+   "start": 1.72,
+   "dur": 0.2542,
+   "velocity": 0.2,
+   "hz": 116.54,
+   "novelty": 0.518
+  },
+  {
+   "midi": 51,
+   "voices": [
+    51,
+    55,
+    58,
+    61,
+    65,
+    68
+   ],
+   "recruited": 6,
+   "art": "strum",
+   "bend": 1.0,
+   "vibrato": 0.0,
+   "string": 2,
+   "fret": 1,
+   "start": 1.8,
+   "dur": 0.2542,
+   "velocity": 0.3888888888888889,
+   "hz": 155.56,
+   "novelty": 0.519
+  },
+  {
+   "midi": 55,
+   "voices": [
+    55,
+    58,
+    61,
+    65,
+    68,
+    72
+   ],
+   "recruited": 5,
+   "art": "strum",
+   "bend": 0.0,
+   "vibrato": 0.0,
+   "string": 3,
+   "fret": 0,
+   "start": 2.16,
+   "dur": 0.2542,
+   "velocity": 0.2,
+   "hz": 196.0,
+   "novelty": 1.0
+  },
+  {
+   "midi": 51,
+   "voices": [
+    51,
+    58,
+    63
+   ],
+   "recruited": 2,
+   "art": "mute",
+   "bend": 0.0,
+   "vibrato": 0.0,
+   "string": 2,
+   "fret": 1,
+   "start": 2.58,
+   "dur": 0.2542,
+   "velocity": 0.2,
+   "hz": 155.56,
+   "novelty": 1.0
+  },
+  {
+   "midi": 56,
+   "voices": [
+    56,
+    63,
+    68
+   ],
+   "recruited": 2,
+   "art": "mute",
+   "bend": 0.0,
+   "vibrato": 0.0,
+   "string": 3,
+   "fret": 1,
+   "start": 2.84,
+   "dur": 0.2542,
+   "velocity": 0.2,
+   "hz": 207.65,
+   "novelty": 1.0
+  },
+  {
+   "midi": 48,
+   "voices": [
+    48
+   ],
+   "recruited": 0,
+   "art": "mute",
+   "bend": 0.0,
+   "vibrato": 0.0,
+   "string": 1,
+   "fret": 3,
+   "start": 3.46,
+   "dur": 0.2542,
+   "velocity": 0.2,
+   "hz": 130.81,
+   "novelty": 1.0
+  },
+  {
+   "midi": 60,
+   "voices": [
+    60,
+    63,
+    67,
+    70,
+    73
+   ],
+   "recruited": 4,
+   "art": "strum",
+   "bend": 0.0,
+   "vibrato": 0.0,
+   "string": 2,
+   "fret": 10,
+   "start": 3.54,
+   "dur": 0.2542,
+   "velocity": 0.2,
+   "hz": 261.63,
+   "novelty": 1.0
+  },
+  {
+   "midi": 58,
+   "voices": [
+    58
+   ],
+   "recruited": 0,
+   "art": "mute",
+   "bend": 0.0,
+   "vibrato": 0.0,
+   "string": 2,
+   "fret": 8,
+   "start": 3.74,
+   "dur": 0.2542,
+   "velocity": 0.2777777777777778,
+   "hz": 233.08,
+   "novelty": 0.541
+  },
+  {
+   "midi": 58,
+   "voices": [
+    58
+   ],
+   "recruited": 0,
+   "art": "legato",
+   "bend": 0.0,
+   "vibrato": 0.0,
+   "string": 2,
+   "fret": 8,
+   "start": 3.8,
+   "dur": 0.2542,
+   "velocity": 0.2222222222222222,
+   "hz": 233.08,
+   "novelty": 0.297
+  },
+  {
+   "midi": 58,
+   "voices": [
+    58
+   ],
+   "recruited": 0,
+   "art": "legato",
+   "bend": 2.0,
+   "vibrato": 0.35,
+   "string": 3,
+   "fret": 3,
+   "start": 3.86,
+   "dur": 0.2542,
+   "velocity": 0.2,
+   "hz": 233.08,
+   "novelty": 0.149
+  },
+  {
+   "midi": 51,
+   "voices": [
+    51
+   ],
+   "recruited": 0,
+   "art": "mute",
+   "bend": 0.0,
+   "vibrato": 0.0,
+   "string": 2,
+   "fret": 1,
+   "start": 4.22,
+   "dur": 0.2542,
+   "velocity": 0.2222222222222222,
+   "hz": 155.56,
+   "novelty": 1.0
+  },
+  {
+   "midi": 51,
+   "voices": [
+    51,
+    55,
+    58,
+    61
+   ],
+   "recruited": 3,
+   "art": "strum",
+   "bend": 0.0,
+   "vibrato": 0.0,
+   "string": 2,
+   "fret": 1,
+   "start": 4.42,
+   "dur": 0.2542,
+   "velocity": 0.2,
+   "hz": 155.56,
+   "novelty": 0.187
+  },
+  {
+   "midi": 46,
+   "voices": [
+    46,
+    49,
+    53,
+    56,
+    60,
+    63
+   ],
+   "recruited": 6,
+   "art": "strum",
+   "bend": 0.0,
+   "vibrato": 0.0,
+   "string": 1,
+   "fret": 1,
+   "start": 4.48,
+   "dur": 0.2542,
+   "velocity": 0.2,
+   "hz": 116.54,
+   "novelty": 0.565
+  },
+  {
+   "midi": 46,
+   "voices": [
+    46
+   ],
+   "recruited": 0,
+   "art": "mute",
+   "bend": 0.0,
+   "vibrato": 0.0,
+   "string": 1,
+   "fret": 1,
+   "start": 4.7,
+   "dur": 0.2542,
+   "velocity": 0.3333333333333333,
+   "hz": 116.54,
+   "novelty": 0.084
+  },
+  {
+   "midi": 51,
+   "voices": [
+    51,
+    55,
+    58,
+    61,
+    65
+   ],
+   "recruited": 4,
+   "art": "strum",
+   "bend": 0.0,
+   "vibrato": 0.0,
+   "string": 2,
+   "fret": 1,
+   "start": 4.88,
+   "dur": 0.2542,
+   "velocity": 0.2,
+   "hz": 155.56,
+   "novelty": 0.323
+  },
+  {
+   "midi": 51,
+   "voices": [
+    51
+   ],
+   "recruited": 0,
+   "art": "mute",
+   "bend": 0.0,
+   "vibrato": 0.0,
+   "string": 2,
+   "fret": 1,
+   "start": 5.02,
+   "dur": 0.2542,
+   "velocity": 0.2,
+   "hz": 155.56,
+   "novelty": 0.101
+  },
+  {
+   "midi": 55,
+   "voices": [
+    55,
+    58
+   ],
+   "recruited": 1,
+   "art": "legato",
+   "bend": 1.0,
+   "vibrato": 0.0,
+   "string": 3,
+   "fret": 0,
+   "start": 5.08,
+   "dur": 0.2542,
+   "velocity": 0.2,
+   "hz": 196.0,
+   "novelty": 0.557
+  },
+  {
+   "midi": 51,
+   "voices": [
+    51
+   ],
+   "recruited": 0,
+   "art": "mute",
+   "bend": 0.0,
+   "vibrato": 0.0,
+   "string": 2,
+   "fret": 1,
+   "start": 5.22,
+   "dur": 0.2542,
+   "velocity": 0.2,
+   "hz": 155.56,
+   "novelty": 0.552
+  },
+  {
+   "midi": 55,
+   "voices": [
+    55,
+    62,
+    67
+   ],
+   "recruited": 2,
+   "art": "mute",
+   "bend": 0.0,
+   "vibrato": 0.0,
+   "string": 3,
+   "fret": 0,
+   "start": 5.34,
+   "dur": 0.2542,
+   "velocity": 0.2,
+   "hz": 196.0,
+   "novelty": 0.284
+  },
+  {
+   "midi": 46,
+   "voices": [
+    46
+   ],
+   "recruited": 0,
+   "art": "mute",
+   "bend": 0.0,
+   "vibrato": 0.0,
+   "string": 1,
+   "fret": 1,
+   "start": 5.44,
+   "dur": 0.2542,
+   "velocity": 0.2,
+   "hz": 116.54,
+   "novelty": 1.0
+  },
+  {
+   "midi": 55,
+   "voices": [
+    55
+   ],
+   "recruited": 0,
+   "art": "mute",
+   "bend": 1.0,
+   "vibrato": 0.0,
+   "string": 3,
+   "fret": 0,
+   "start": 5.56,
+   "dur": 0.2542,
+   "velocity": 0.2,
+   "hz": 196.0,
+   "novelty": 1.0
+  },
+  {
+   "midi": 46,
+   "voices": [
+    46
+   ],
+   "recruited": 0,
+   "art": "mute",
+   "bend": 0.0,
+   "vibrato": 0.0,
+   "string": 1,
+   "fret": 1,
+   "start": 6.12,
+   "dur": 0.2542,
+   "velocity": 0.2222222222222222,
+   "hz": 116.54,
+   "novelty": 0.514
+  },
+  {
+   "midi": 46,
+   "voices": [
+    46
+   ],
+   "recruited": 0,
+   "art": "legato",
+   "bend": 0.0,
+   "vibrato": 0.0,
+   "string": 1,
+   "fret": 1,
+   "start": 6.18,
+   "dur": 0.2542,
+   "velocity": 0.2222222222222222,
+   "hz": 116.54,
+   "novelty": 0.055
+  },
+  {
+   "midi": 46,
+   "voices": [
+    46
+   ],
+   "recruited": 0,
+   "art": "mute",
+   "bend": 0.0,
+   "vibrato": 0.0,
+   "string": 1,
+   "fret": 1,
+   "start": 6.5,
+   "dur": 0.2542,
+   "velocity": 0.2,
+   "hz": 116.54,
+   "novelty": 0.029
+  },
+  {
+   "midi": 41,
+   "voices": [
+    41
+   ],
+   "recruited": 0,
+   "art": "mute",
+   "bend": 0.0,
+   "vibrato": 0.0,
+   "string": 0,
+   "fret": 1,
+   "start": 6.62,
+   "dur": 0.2542,
+   "velocity": 0.2,
+   "hz": 87.31,
+   "novelty": 1.0
+  },
+  {
+   "midi": 55,
+   "voices": [
+    55
+   ],
+   "recruited": 0,
+   "art": "mute",
+   "bend": 0.0,
+   "vibrato": 0.0,
+   "string": 3,
+   "fret": 0,
+   "start": 6.74,
+   "dur": 0.2542,
+   "velocity": 0.2,
+   "hz": 196.0,
+   "novelty": 1.0
+  },
+  {
+   "midi": 53,
+   "voices": [
+    53
+   ],
+   "recruited": 0,
+   "art": "mute",
+   "bend": 0.0,
+   "vibrato": 0.0,
+   "string": 2,
+   "fret": 3,
+   "start": 6.92,
+   "dur": 0.2542,
+   "velocity": 0.2222222222222222,
+   "hz": 174.61,
+   "novelty": 1.0
+  },
+  {
+   "midi": 48,
+   "voices": [
+    48
+   ],
+   "recruited": 0,
+   "art": "mute",
+   "bend": 0.0,
+   "vibrato": 0.0,
+   "string": 1,
+   "fret": 3,
+   "start": 7.02,
+   "dur": 0.2542,
+   "velocity": 0.2,
+   "hz": 130.81,
+   "novelty": 1.0
+  },
+  {
+   "midi": 48,
+   "voices": [
+    48
+   ],
+   "recruited": 0,
+   "art": "legato",
+   "bend": 0.0,
+   "vibrato": 0.0,
+   "string": 1,
+   "fret": 3,
+   "start": 7.06,
+   "dur": 0.2542,
+   "velocity": 0.2,
+   "hz": 130.81,
+   "novelty": 1.0
+  },
+  {
+   "midi": 51,
+   "voices": [
+    51,
+    58
+   ],
+   "recruited": 1,
+   "art": "mute",
+   "bend": 0.0,
+   "vibrato": 0.0,
+   "string": 2,
+   "fret": 1,
+   "start": 7.2,
+   "dur": 0.2542,
+   "velocity": 0.2,
+   "hz": 155.56,
+   "novelty": 1.0
+  },
+  {
+   "midi": 51,
+   "voices": [
+    51
+   ],
+   "recruited": 0,
+   "art": "mute",
+   "bend": 1.0,
+   "vibrato": 0.0,
+   "string": 2,
+   "fret": 1,
+   "start": 7.46,
+   "dur": 0.2542,
+   "velocity": 0.2,
+   "hz": 155.56,
+   "novelty": 0.075
+  },
+  {
+   "midi": 58,
+   "voices": [
+    58
+   ],
+   "recruited": 0,
+   "art": "legato",
+   "bend": 2.0,
+   "vibrato": 0.35,
+   "string": 3,
+   "fret": 3,
+   "start": 7.5,
+   "dur": 0.2542,
+   "velocity": 0.2,
+   "hz": 233.08,
+   "novelty": 1.0
+  },
+  {
+   "midi": 64,
+   "voices": [
+    64,
+    71
+   ],
+   "recruited": 1,
+   "art": "mute",
+   "bend": 0.0,
+   "vibrato": 0.0,
+   "string": 2,
+   "fret": 14,
+   "start": 7.6,
+   "dur": 0.1786,
+   "velocity": 0.2,
+   "hz": 329.63,
+   "novelty": 1.0
+  },
+  {
+   "midi": 57,
+   "voices": [
+    57,
+    60
+   ],
+   "recruited": 1,
+   "art": "legato",
+   "bend": 0.0,
+   "vibrato": 0.0,
+   "string": 1,
+   "fret": 12,
+   "start": 7.66,
+   "dur": 0.1786,
+   "velocity": 0.2,
+   "hz": 220.0,
+   "novelty": 1.0
+  },
+  {
+   "midi": 50,
+   "voices": [
+    50,
+    54
+   ],
+   "recruited": 1,
+   "art": "legato",
+   "bend": 0.0,
+   "vibrato": 0.0,
+   "string": 1,
+   "fret": 5,
+   "start": 7.72,
+   "dur": 0.1786,
+   "velocity": 0.2,
+   "hz": 146.83,
+   "novelty": 1.0
+  },
+  {
+   "midi": 54,
+   "voices": [
+    54,
+    57,
+    60,
+    64
+   ],
+   "recruited": 3,
+   "art": "strum",
+   "bend": 0.0,
+   "vibrato": 0.0,
+   "string": 2,
+   "fret": 4,
+   "start": 7.8,
+   "dur": 0.1786,
+   "velocity": 0.2,
+   "hz": 185.0,
+   "novelty": 1.0
+  },
+  {
+   "midi": 50,
+   "voices": [
+    50,
+    54,
+    57,
+    60
+   ],
+   "recruited": 3,
+   "art": "strum",
+   "bend": 0.0,
+   "vibrato": 0.0,
+   "string": 1,
+   "fret": 5,
+   "start": 7.84,
+   "dur": 0.1786,
+   "velocity": 0.2,
+   "hz": 146.83,
+   "novelty": 1.0
+  },
+  {
+   "midi": 50,
+   "voices": [
+    50,
+    57,
+    62
+   ],
+   "recruited": 2,
+   "art": "mute",
+   "bend": 0.0,
+   "vibrato": 0.0,
+   "string": 2,
+   "fret": 0,
+   "start": 8.26,
+   "dur": 0.1786,
+   "velocity": 0.2,
+   "hz": 146.83,
+   "novelty": 1.0
+  },
+  {
+   "midi": 45,
+   "voices": [
+    45
+   ],
+   "recruited": 0,
+   "art": "mute",
+   "bend": 0.0,
+   "vibrato": 0.0,
+   "string": 1,
+   "fret": 0,
+   "start": 9.14,
+   "dur": 0.1786,
+   "velocity": 0.2,
+   "hz": 110.0,
+   "novelty": 1.0
+  },
+  {
+   "midi": 50,
+   "voices": [
+    50,
+    54,
+    57,
+    60,
+    64,
+    67
+   ],
+   "recruited": 5,
+   "art": "strum",
+   "bend": 1.0,
+   "vibrato": 0.0,
+   "string": 2,
+   "fret": 0,
+   "start": 9.28,
+   "dur": 0.1786,
+   "velocity": 0.2,
+   "hz": 146.83,
+   "novelty": 1.0
+  },
+  {
+   "midi": 55,
+   "voices": [
+    55,
+    59,
+    62,
+    66,
+    69,
+    72
+   ],
+   "recruited": 5,
+   "art": "strum",
+   "bend": 1.0,
+   "vibrato": 0.0,
+   "string": 3,
+   "fret": 0,
+   "start": 9.32,
+   "dur": 0.1786,
+   "velocity": 0.2,
+   "hz": 196.0,
+   "novelty": 1.0
+  },
+  {
+   "midi": 45,
+   "voices": [
+    45
+   ],
+   "recruited": 0,
+   "art": "legato",
+   "bend": 0.0,
+   "vibrato": 0.0,
+   "string": 1,
+   "fret": 0,
+   "start": 9.38,
+   "dur": 0.1786,
+   "velocity": 0.2,
+   "hz": 110.0,
+   "novelty": 1.0
+  },
+  {
+   "midi": 55,
+   "voices": [
+    55
+   ],
+   "recruited": 0,
+   "art": "legato",
+   "bend": 0.0,
+   "vibrato": 0.0,
+   "string": 3,
+   "fret": 0,
+   "start": 9.44,
+   "dur": 0.1786,
+   "velocity": 0.2,
+   "hz": 196.0,
+   "novelty": 1.0
+  },
+  {
+   "midi": 45,
+   "voices": [
+    45
+   ],
+   "recruited": 0,
+   "art": "legato",
+   "bend": 1.0,
+   "vibrato": 0.0,
+   "string": 1,
+   "fret": 0,
+   "start": 9.5,
+   "dur": 0.1786,
+   "velocity": 0.2,
+   "hz": 110.0,
+   "novelty": 0.502
+  },
+  {
+   "midi": 45,
+   "voices": [
+    45
+   ],
+   "recruited": 0,
+   "art": "legato",
+   "bend": 0.0,
+   "vibrato": 0.0,
+   "string": 1,
+   "fret": 0,
+   "start": 9.56,
+   "dur": 0.1786,
+   "velocity": 0.2,
+   "hz": 110.0,
+   "novelty": 1.0
+  },
+  {
+   "midi": 59,
+   "voices": [
+    59,
+    62,
+    66,
+    69,
+    72,
+    76
+   ],
+   "recruited": 5,
+   "art": "strum",
+   "bend": 1.0,
+   "vibrato": 0.35,
+   "string": 4,
+   "fret": 0,
+   "start": 9.6,
+   "dur": 0.1786,
+   "velocity": 0.2,
+   "hz": 246.94,
+   "novelty": 1.0
+  },
+  {
+   "midi": 59,
+   "voices": [
+    59,
+    62,
+    66,
+    69,
+    72,
+    76
+   ],
+   "recruited": 5,
+   "art": "strum",
+   "bend": 1.0,
+   "vibrato": 0.0,
+   "string": 4,
+   "fret": 0,
+   "start": 9.66,
+   "dur": 0.1786,
+   "velocity": 0.2,
+   "hz": 246.94,
+   "novelty": 1.0
+  },
+  {
+   "midi": 45,
+   "voices": [
+    45
+   ],
+   "recruited": 0,
+   "art": "mute",
+   "bend": 0.0,
+   "vibrato": 0.0,
+   "string": 1,
+   "fret": 0,
+   "start": 9.76,
+   "dur": 0.1786,
+   "velocity": 0.2,
+   "hz": 110.0,
+   "novelty": 1.0
+  },
+  {
+   "midi": 47,
+   "voices": [
+    47,
+    50,
+    54,
+    57
+   ],
+   "recruited": 3,
+   "art": "strum",
+   "bend": 0.0,
+   "vibrato": 0.0,
+   "string": 1,
+   "fret": 2,
+   "start": 9.88,
+   "dur": 0.1786,
+   "velocity": 0.2,
+   "hz": 123.47,
+   "novelty": 1.0
+  },
+  {
+   "midi": 48,
+   "voices": [
+    48,
+    52,
+    55,
+    59
+   ],
+   "recruited": 3,
+   "art": "strum",
+   "bend": 0.0,
+   "vibrato": 0.0,
+   "string": 1,
+   "fret": 3,
+   "start": 9.92,
+   "dur": 0.1786,
+   "velocity": 0.2,
+   "hz": 130.81,
+   "novelty": 1.0
+  },
+  {
+   "midi": 45,
+   "voices": [
+    45
+   ],
+   "recruited": 0,
+   "art": "mute",
+   "bend": 0.0,
+   "vibrato": 0.0,
+   "string": 1,
+   "fret": 0,
+   "start": 10.02,
+   "dur": 0.1786,
+   "velocity": 0.2,
+   "hz": 110.0,
+   "novelty": 1.0
+  },
+  {
+   "midi": 55,
+   "voices": [
+    55,
+    62,
+    67
+   ],
+   "recruited": 2,
+   "art": "mute",
+   "bend": 0.0,
+   "vibrato": 0.0,
+   "string": 3,
+   "fret": 0,
+   "start": 10.5,
+   "dur": 0.1786,
+   "velocity": 0.2,
+   "hz": 196.0,
+   "novelty": 0.521
+  },
+  {
+   "midi": 45,
+   "voices": [
+    45,
+    48,
+    52,
+    55
+   ],
+   "recruited": 3,
+   "art": "strum",
+   "bend": 0.0,
+   "vibrato": 0.0,
+   "string": 1,
+   "fret": 0,
+   "start": 10.62,
+   "dur": 0.1786,
+   "velocity": 0.2,
+   "hz": 110.0,
+   "novelty": 0.274
+  },
+  {
+   "midi": 54,
+   "voices": [
+    54
+   ],
+   "recruited": 0,
+   "art": "mute",
+   "bend": 1.0,
+   "vibrato": 0.35,
+   "string": 2,
+   "fret": 4,
+   "start": 10.76,
+   "dur": 0.1786,
+   "velocity": 0.3333333333333333,
+   "hz": 185.0,
+   "novelty": 1.0
+  },
+  {
+   "midi": 59,
+   "voices": [
+    59,
+    62,
+    66,
+    69
+   ],
+   "recruited": 3,
+   "art": "strum",
+   "bend": 1.0,
+   "vibrato": 0.0,
+   "string": 3,
+   "fret": 4,
+   "start": 10.84,
+   "dur": 0.1786,
+   "velocity": 0.2,
+   "hz": 246.94,
+   "novelty": 1.0
+  },
+  {
+   "midi": 52,
+   "voices": [
+    52,
+    55,
+    59,
+    62
+   ],
+   "recruited": 3,
+   "art": "strum",
+   "bend": 0.0,
+   "vibrato": 0.0,
+   "string": 2,
+   "fret": 2,
+   "start": 10.9,
+   "dur": 0.1786,
+   "velocity": 0.2222222222222222,
+   "hz": 164.81,
+   "novelty": 1.0
+  },
+  {
+   "midi": 45,
+   "voices": [
+    45,
+    48,
+    52,
+    55
+   ],
+   "recruited": 3,
+   "art": "strum",
+   "bend": 0.0,
+   "vibrato": 0.0,
+   "string": 1,
+   "fret": 0,
+   "start": 11.96,
+   "dur": 0.1786,
+   "velocity": 0.2,
+   "hz": 110.0,
+   "novelty": 0.582
+  },
+  {
+   "midi": 55,
+   "voices": [
+    55
+   ],
+   "recruited": 0,
+   "art": "mute",
+   "bend": 0.0,
+   "vibrato": 0.0,
+   "string": 3,
+   "fret": 0,
+   "start": 12.2,
+   "dur": 0.1786,
+   "velocity": 0.2,
+   "hz": 196.0,
+   "novelty": 0.295
+  },
+  {
+   "midi": 50,
+   "voices": [
+    50,
+    54,
+    57,
+    60,
+    64
+   ],
+   "recruited": 4,
+   "art": "strum",
+   "bend": 0.0,
+   "vibrato": 0.0,
+   "string": 2,
+   "fret": 0,
+   "start": 12.32,
+   "dur": 0.1786,
+   "velocity": 0.2,
+   "hz": 146.83,
+   "novelty": 1.0
+  },
+  {
+   "midi": 40,
+   "voices": [
+    40
+   ],
+   "recruited": 0,
+   "art": "mute",
+   "bend": 0.0,
+   "vibrato": 0.0,
+   "string": 0,
+   "fret": 0,
+   "start": 12.48,
+   "dur": 0.1786,
+   "velocity": 0.2,
+   "hz": 82.41,
+   "novelty": 1.0
+  },
+  {
+   "midi": 50,
+   "voices": [
+    50
+   ],
+   "recruited": 0,
+   "art": "mute",
+   "bend": 0.0,
+   "vibrato": 0.0,
+   "string": 2,
+   "fret": 0,
+   "start": 12.62,
+   "dur": 0.1786,
+   "velocity": 0.2,
+   "hz": 146.83,
+   "novelty": 1.0
+  },
+  {
+   "midi": 45,
+   "voices": [
+    45
+   ],
+   "recruited": 0,
+   "art": "legato",
+   "bend": 0.0,
+   "vibrato": 0.0,
+   "string": 1,
+   "fret": 0,
+   "start": 12.68,
+   "dur": 0.1786,
+   "velocity": 0.2,
+   "hz": 110.0,
+   "novelty": 0.568
+  },
+  {
+   "midi": 55,
+   "voices": [
+    55,
+    62
+   ],
+   "recruited": 1,
+   "art": "mute",
+   "bend": 0.0,
+   "vibrato": 0.0,
+   "string": 3,
+   "fret": 0,
+   "start": 12.8,
+   "dur": 0.1786,
+   "velocity": 0.2,
+   "hz": 196.0,
+   "novelty": 0.158
+  },
+  {
+   "midi": 50,
+   "voices": [
+    50,
+    54
+   ],
+   "recruited": 1,
+   "art": "legato",
+   "bend": 0.0,
+   "vibrato": 0.0,
+   "string": 2,
+   "fret": 0,
+   "start": 12.84,
+   "dur": 0.1786,
+   "velocity": 0.2,
+   "hz": 146.83,
+   "novelty": 0.51
+  },
+  {
+   "midi": 59,
+   "voices": [
+    59,
+    66
+   ],
+   "recruited": 1,
+   "art": "mute",
+   "bend": 0.0,
+   "vibrato": 0.0,
+   "string": 4,
+   "fret": 0,
+   "start": 12.94,
+   "dur": 0.1786,
+   "velocity": 0.2222222222222222,
+   "hz": 246.94,
+   "novelty": 1.0
+  },
+  {
+   "midi": 50,
+   "voices": [
+    50,
+    57,
+    62
+   ],
+   "recruited": 2,
+   "art": "mute",
+   "bend": 0.0,
+   "vibrato": 0.0,
+   "string": 2,
+   "fret": 0,
+   "start": 13.08,
+   "dur": 0.1786,
+   "velocity": 0.2777777777777778,
+   "hz": 146.83,
+   "novelty": 1.0
+  },
+  {
+   "midi": 50,
+   "voices": [
+    50,
+    54,
+    57
+   ],
+   "recruited": 2,
+   "art": "legato",
+   "bend": 0.0,
+   "vibrato": 0.0,
+   "string": 2,
+   "fret": 0,
+   "start": 13.14,
+   "dur": 0.1786,
+   "velocity": 0.2,
+   "hz": 146.83,
+   "novelty": 0.593
+  },
+  {
+   "midi": 64,
+   "voices": [
+    64,
+    67,
+    71,
+    74,
+    78
+   ],
+   "recruited": 4,
+   "art": "strum",
+   "bend": 0.0,
+   "vibrato": 0.0,
+   "string": 5,
+   "fret": 0,
+   "start": 13.46,
+   "dur": 0.1786,
+   "velocity": 0.3333333333333333,
+   "hz": 329.63,
+   "novelty": 1.0
+  },
+  {
+   "midi": 52,
+   "voices": [
+    52,
+    55,
+    59,
+    62
+   ],
+   "recruited": 3,
+   "art": "strum",
+   "bend": 0.0,
+   "vibrato": 0.0,
+   "string": 2,
+   "fret": 2,
+   "start": 13.64,
+   "dur": 0.1786,
+   "velocity": 0.2,
+   "hz": 164.81,
+   "novelty": 1.0
+  },
+  {
+   "midi": 45,
+   "voices": [
+    45,
+    52,
+    57
+   ],
+   "recruited": 2,
+   "art": "mute",
+   "bend": 0.0,
+   "vibrato": 0.0,
+   "string": 1,
+   "fret": 0,
+   "start": 13.9,
+   "dur": 0.1786,
+   "velocity": 0.2222222222222222,
+   "hz": 110.0,
+   "novelty": 0.332
+  },
+  {
+   "midi": 45,
+   "voices": [
+    45
+   ],
+   "recruited": 0,
+   "art": "mute",
+   "bend": 0.0,
+   "vibrato": 0.0,
+   "string": 1,
+   "fret": 0,
+   "start": 14.14,
+   "dur": 0.1786,
+   "velocity": 0.2,
+   "hz": 110.0,
+   "novelty": 0.587
+  },
+  {
+   "midi": 50,
+   "voices": [
+    50
+   ],
+   "recruited": 0,
+   "art": "mute",
+   "bend": 0.0,
+   "vibrato": 0.0,
+   "string": 2,
+   "fret": 0,
+   "start": 14.52,
+   "dur": 0.1786,
+   "velocity": 0.2,
+   "hz": 146.83,
+   "novelty": 0.599
+  },
+  {
+   "midi": 50,
+   "voices": [
+    50
+   ],
+   "recruited": 0,
+   "art": "mute",
+   "bend": 0.0,
+   "vibrato": 0.0,
+   "string": 2,
+   "fret": 0,
+   "start": 14.82,
+   "dur": 0.1786,
+   "velocity": 0.2,
+   "hz": 146.83,
+   "novelty": 0.332
+  },
+  {
+   "midi": 57,
+   "voices": [
+    57,
+    59,
+    64,
+    69
+   ],
+   "recruited": 3,
+   "art": "strum",
+   "bend": 0.0,
+   "vibrato": 0.0,
+   "string": 3,
+   "fret": 2,
+   "start": 15.06,
+   "dur": 0.2885,
+   "velocity": 0.2,
+   "hz": 220.0,
+   "novelty": 1.0
+  },
+  {
+   "midi": 45,
+   "voices": [
+    45,
+    47,
+    52,
+    57,
+    59
+   ],
+   "recruited": 4,
+   "art": "strum",
+   "bend": 0.0,
+   "vibrato": 0.0,
+   "string": 1,
+   "fret": 0,
+   "start": 15.26,
+   "dur": 0.2885,
+   "velocity": 0.2,
+   "hz": 110.0,
+   "novelty": 1.0
+  },
+  {
+   "midi": 50,
+   "voices": [
+    50,
+    55,
+    58,
+    62,
+    67
+   ],
+   "recruited": 4,
+   "art": "strum",
+   "bend": 0.0,
+   "vibrato": 0.0,
+   "string": 2,
+   "fret": 0,
+   "start": 15.32,
+   "dur": 0.2885,
+   "velocity": 0.2,
+   "hz": 146.83,
+   "novelty": 0.316
+  },
+  {
+   "midi": 50,
+   "voices": [
+    50
+   ],
+   "recruited": 0,
+   "art": "mute",
+   "bend": 0.0,
+   "vibrato": 0.0,
+   "string": 2,
+   "fret": 0,
+   "start": 16.48,
+   "dur": 0.2885,
+   "velocity": 0.2777777777777778,
+   "hz": 146.83,
+   "novelty": 0.195
+  },
+  {
+   "midi": 57,
+   "voices": [
+    57
+   ],
+   "recruited": 0,
+   "art": "mute",
+   "bend": 1.0,
+   "vibrato": 0.0,
+   "string": 3,
+   "fret": 2,
+   "start": 16.7,
+   "dur": 0.2885,
+   "velocity": 0.2,
+   "hz": 220.0,
+   "novelty": 0.532
+  },
+  {
+   "midi": 57,
+   "voices": [
+    57
+   ],
+   "recruited": 0,
+   "art": "legato",
+   "bend": 0.0,
+   "vibrato": 0.0,
+   "string": 3,
+   "fret": 2,
+   "start": 16.76,
+   "dur": 0.2885,
+   "velocity": 0.2,
+   "hz": 220.0,
+   "novelty": 0.349
+  },
+  {
+   "midi": 45,
+   "voices": [
+    45,
+    52,
+    57
+   ],
+   "recruited": 2,
+   "art": "mute",
+   "bend": 0.0,
+   "vibrato": 0.0,
+   "string": 1,
+   "fret": 0,
+   "start": 16.86,
+   "dur": 0.2885,
+   "velocity": 0.2,
+   "hz": 110.0,
+   "novelty": 0.532
+  },
+  {
+   "midi": 50,
+   "voices": [
+    50
+   ],
+   "recruited": 0,
+   "art": "mute",
+   "bend": 0.0,
+   "vibrato": 0.0,
+   "string": 2,
+   "fret": 0,
+   "start": 16.96,
+   "dur": 0.2885,
+   "velocity": 0.2222222222222222,
+   "hz": 146.83,
+   "novelty": 0.187
+  },
+  {
+   "midi": 55,
+   "voices": [
+    55,
+    58,
+    62,
+    67,
+    70,
+    74
+   ],
+   "recruited": 6,
+   "art": "strum",
+   "bend": 2.0,
+   "vibrato": 0.35,
+   "string": 3,
+   "fret": 0,
+   "start": 17.04,
+   "dur": 0.2885,
+   "velocity": 0.3888888888888889,
+   "hz": 196.0,
+   "novelty": 0.642
+  },
+  {
+   "midi": 45,
+   "voices": [
+    45,
+    47,
+    52,
+    57,
+    59,
+    64
+   ],
+   "recruited": 6,
+   "art": "strum",
+   "bend": 0.0,
+   "vibrato": 0.0,
+   "string": 1,
+   "fret": 0,
+   "start": 17.14,
+   "dur": 0.2885,
+   "velocity": 0.2,
+   "hz": 110.0,
+   "novelty": 0.256
+  },
+  {
+   "midi": 50,
+   "voices": [
+    50,
+    55,
+    58,
+    62
+   ],
+   "recruited": 3,
+   "art": "strum",
+   "bend": 0.0,
+   "vibrato": 0.0,
+   "string": 2,
+   "fret": 0,
+   "start": 17.46,
+   "dur": 0.2885,
+   "velocity": 0.2,
+   "hz": 146.83,
+   "novelty": 0.1
+  },
+  {
+   "midi": 50,
+   "voices": [
+    50,
+    55,
+    58,
+    62
+   ],
+   "recruited": 3,
+   "art": "strum",
+   "bend": 0.0,
+   "vibrato": 0.0,
+   "string": 2,
+   "fret": 0,
+   "start": 17.58,
+   "dur": 0.2885,
+   "velocity": 0.2,
+   "hz": 146.83,
+   "novelty": 0.113
+  },
+  {
+   "midi": 50,
+   "voices": [
+    50,
+    55,
+    58,
+    62
+   ],
+   "recruited": 3,
+   "art": "strum",
+   "bend": 0.0,
+   "vibrato": 0.0,
+   "string": 2,
+   "fret": 0,
+   "start": 17.96,
+   "dur": 0.2885,
+   "velocity": 0.2,
+   "hz": 146.83,
+   "novelty": 0.06
+  },
+  {
+   "midi": 45,
+   "voices": [
+    45,
+    47,
+    52,
+    57,
+    59
+   ],
+   "recruited": 4,
+   "art": "strum",
+   "bend": 0.0,
+   "vibrato": 0.0,
+   "string": 1,
+   "fret": 0,
+   "start": 18.08,
+   "dur": 0.2885,
+   "velocity": 0.2,
+   "hz": 110.0,
+   "novelty": 0.398
+  },
+  {
+   "midi": 55,
+   "voices": [
+    55,
+    62,
+    67
+   ],
+   "recruited": 2,
+   "art": "mute",
+   "bend": 0.0,
+   "vibrato": 0.0,
+   "string": 3,
+   "fret": 0,
+   "start": 18.36,
+   "dur": 0.2885,
+   "velocity": 0.2,
+   "hz": 196.0,
+   "novelty": 0.158
+  },
+  {
+   "midi": 55,
+   "voices": [
+    55,
+    58,
+    62,
+    67,
+    70
+   ],
+   "recruited": 4,
+   "art": "strum",
+   "bend": 1.0,
+   "vibrato": 0.0,
+   "string": 3,
+   "fret": 0,
+   "start": 18.48,
+   "dur": 0.2885,
+   "velocity": 0.2,
+   "hz": 196.0,
+   "novelty": 1.0
+  },
+  {
+   "midi": 45,
+   "voices": [
+    45,
+    47,
+    52,
+    57,
+    59
+   ],
+   "recruited": 4,
+   "art": "strum",
+   "bend": 0.0,
+   "vibrato": 0.0,
+   "string": 1,
+   "fret": 0,
+   "start": 18.54,
+   "dur": 0.2885,
+   "velocity": 0.2,
+   "hz": 110.0,
+   "novelty": 0.15
+  },
+  {
+   "midi": 40,
+   "voices": [
+    40
+   ],
+   "recruited": 0,
+   "art": "mute",
+   "bend": 0.0,
+   "vibrato": 0.0,
+   "string": 0,
+   "fret": 0,
+   "start": 18.66,
+   "dur": 0.2885,
+   "velocity": 0.2,
+   "hz": 82.41,
+   "novelty": 1.0
+  },
+  {
+   "midi": 52,
+   "voices": [
+    52
+   ],
+   "recruited": 0,
+   "art": "mute",
+   "bend": 0.0,
+   "vibrato": 0.0,
+   "string": 2,
+   "fret": 2,
+   "start": 18.8,
+   "dur": 0.2885,
+   "velocity": 0.2,
+   "hz": 164.81,
+   "novelty": 1.0
+  },
+  {
+   "midi": 47,
+   "voices": [
+    47
+   ],
+   "recruited": 0,
+   "art": "mute",
+   "bend": 0.0,
+   "vibrato": 0.0,
+   "string": 1,
+   "fret": 2,
+   "start": 18.88,
+   "dur": 0.2885,
+   "velocity": 0.2,
+   "hz": 123.47,
+   "novelty": 1.0
+  },
+  {
+   "midi": 52,
+   "voices": [
+    52
+   ],
+   "recruited": 0,
+   "art": "legato",
+   "bend": 1.0,
+   "vibrato": 0.0,
+   "string": 2,
+   "fret": 2,
+   "start": 18.94,
+   "dur": 0.2885,
+   "velocity": 0.2,
+   "hz": 164.81,
+   "novelty": 1.0
+  },
+  {
+   "midi": 55,
+   "voices": [
+    55
+   ],
+   "recruited": 0,
+   "art": "mute",
+   "bend": 1.0,
+   "vibrato": 0.35,
+   "string": 3,
+   "fret": 0,
+   "start": 19.26,
+   "dur": 0.2885,
+   "velocity": 0.2,
+   "hz": 196.0,
+   "novelty": 1.0
+  },
+  {
+   "midi": 52,
+   "voices": [
+    52,
+    59,
+    64
+   ],
+   "recruited": 2,
+   "art": "mute",
+   "bend": 0.0,
+   "vibrato": 0.0,
+   "string": 2,
+   "fret": 2,
+   "start": 19.44,
+   "dur": 0.2885,
+   "velocity": 0.2,
+   "hz": 164.81,
+   "novelty": 1.0
+  },
+  {
+   "midi": 47,
+   "voices": [
+    47,
+    54,
+    59
+   ],
+   "recruited": 2,
+   "art": "mute",
+   "bend": 0.0,
+   "vibrato": 0.0,
+   "string": 1,
+   "fret": 2,
+   "start": 19.52,
+   "dur": 0.2885,
+   "velocity": 0.2,
+   "hz": 123.47,
+   "novelty": 0.513
+  },
+  {
+   "midi": 55,
+   "voices": [
+    55,
+    58,
+    62,
+    67,
+    70,
+    74
+   ],
+   "recruited": 6,
+   "art": "strum",
+   "bend": 1.0,
+   "vibrato": 0.0,
+   "string": 3,
+   "fret": 0,
+   "start": 19.68,
+   "dur": 0.2885,
+   "velocity": 0.2,
+   "hz": 196.0,
+   "novelty": 1.0
+  },
+  {
+   "midi": 45,
+   "voices": [
+    45
+   ],
+   "recruited": 0,
+   "art": "mute",
+   "bend": 0.0,
+   "vibrato": 0.0,
+   "string": 1,
+   "fret": 0,
+   "start": 19.8,
+   "dur": 0.2885,
+   "velocity": 0.2,
+   "hz": 110.0,
+   "novelty": 0.09
+  },
+  {
+   "midi": 50,
+   "voices": [
+    50
+   ],
+   "recruited": 0,
+   "art": "mute",
+   "bend": 0.0,
+   "vibrato": 0.0,
+   "string": 1,
+   "fret": 5,
+   "start": 20.04,
+   "dur": 0.2885,
+   "velocity": 0.2,
+   "hz": 146.83,
+   "novelty": 0.076
+  },
+  {
+   "midi": 50,
+   "voices": [
+    50
+   ],
+   "recruited": 0,
+   "art": "legato",
+   "bend": 0.0,
+   "vibrato": 0.0,
+   "string": 2,
+   "fret": 0,
+   "start": 20.1,
+   "dur": 0.2885,
+   "velocity": 0.2,
+   "hz": 146.83,
+   "novelty": 0.045
+  },
+  {
+   "midi": 50,
+   "voices": [
+    50,
+    55,
+    58,
+    62,
+    67,
+    70
+   ],
+   "recruited": 6,
+   "art": "strum",
+   "bend": 1.0,
+   "vibrato": 0.35,
+   "string": 2,
+   "fret": 0,
+   "start": 20.28,
+   "dur": 0.2885,
+   "velocity": 0.2,
+   "hz": 146.83,
+   "novelty": 0.023
+  },
+  {
+   "midi": 45,
+   "voices": [
+    45,
+    47,
+    52,
+    57,
+    59,
+    64
+   ],
+   "recruited": 6,
+   "art": "strum",
+   "bend": 0.0,
+   "vibrato": 0.0,
+   "string": 1,
+   "fret": 0,
+   "start": 20.38,
+   "dur": 0.2885,
+   "velocity": 0.2,
+   "hz": 110.0,
+   "novelty": 0.243
+  },
+  {
+   "midi": 45,
+   "voices": [
+    45
+   ],
+   "recruited": 0,
+   "art": "legato",
+   "bend": 0.0,
+   "vibrato": 0.0,
+   "string": 1,
+   "fret": 0,
+   "start": 20.42,
+   "dur": 0.2885,
+   "velocity": 0.2,
+   "hz": 110.0,
+   "novelty": 0.243
+  },
+  {
+   "midi": 45,
+   "voices": [
+    45
+   ],
+   "recruited": 0,
+   "art": "legato",
+   "bend": 0.0,
+   "vibrato": 0.0,
+   "string": 1,
+   "fret": 0,
+   "start": 20.46,
+   "dur": 0.2885,
+   "velocity": 0.2,
+   "hz": 110.0,
+   "novelty": 0.122
+  },
+  {
+   "midi": 58,
+   "voices": [
+    58,
+    62,
+    67,
+    70,
+    74,
+    79
+   ],
+   "recruited": 5,
+   "art": "strum",
+   "bend": 1.0,
+   "vibrato": 0.35,
+   "string": 3,
+   "fret": 3,
+   "start": 20.64,
+   "dur": 0.2885,
+   "velocity": 0.2777777777777778,
+   "hz": 233.08,
+   "novelty": 1.0
+  },
+  {
+   "midi": 45,
+   "voices": [
+    45
+   ],
+   "recruited": 0,
+   "art": "mute",
+   "bend": 0.0,
+   "vibrato": 0.0,
+   "string": 1,
+   "fret": 0,
+   "start": 20.9,
+   "dur": 0.2885,
+   "velocity": 0.2,
+   "hz": 110.0,
+   "novelty": 1.0
+  },
+  {
+   "midi": 45,
+   "voices": [
+    45
+   ],
+   "recruited": 0,
+   "art": "legato",
+   "bend": 0.0,
+   "vibrato": 0.0,
+   "string": 1,
+   "fret": 0,
+   "start": 20.94,
+   "dur": 0.2885,
+   "velocity": 0.2,
+   "hz": 110.0,
+   "novelty": 0.066
+  },
+  {
+   "midi": 46,
+   "voices": [
+    46
+   ],
+   "recruited": 0,
+   "art": "mute",
+   "bend": 0.0,
+   "vibrato": 0.0,
+   "string": 1,
+   "fret": 1,
+   "start": 21.04,
+   "dur": 0.2885,
+   "velocity": 0.2,
+   "hz": 116.54,
+   "novelty": 1.0
+  },
+  {
+   "midi": 45,
+   "voices": [
+    45
+   ],
+   "recruited": 0,
+   "art": "legato",
+   "bend": 1.0,
+   "vibrato": 0.35,
+   "string": 1,
+   "fret": 0,
+   "start": 21.1,
+   "dur": 0.2885,
+   "velocity": 0.5,
+   "hz": 110.0,
+   "novelty": 1.0
+  },
+  {
+   "midi": 52,
+   "voices": [
+    52
+   ],
+   "recruited": 0,
+   "art": "mute",
+   "bend": 0.0,
+   "vibrato": 0.0,
+   "string": 2,
+   "fret": 2,
+   "start": 21.22,
+   "dur": 0.2885,
+   "velocity": 0.2222222222222222,
+   "hz": 164.81,
+   "novelty": 1.0
+  },
+  {
+   "midi": 46,
+   "voices": [
+    46,
+    50,
+    55,
+    58
+   ],
+   "recruited": 3,
+   "art": "strum",
+   "bend": 0.0,
+   "vibrato": 0.0,
+   "string": 1,
+   "fret": 1,
+   "start": 21.28,
+   "dur": 0.2885,
+   "velocity": 0.2,
+   "hz": 116.54,
+   "novelty": 1.0
+  },
+  {
+   "midi": 50,
+   "voices": [
+    50,
+    55,
+    58,
+    62,
+    67
+   ],
+   "recruited": 4,
+   "art": "strum",
+   "bend": 1.0,
+   "vibrato": 0.0,
+   "string": 2,
+   "fret": 0,
+   "start": 21.44,
+   "dur": 0.2885,
+   "velocity": 0.2,
+   "hz": 146.83,
+   "novelty": 1.0
+  },
+  {
+   "midi": 45,
+   "voices": [
+    45
+   ],
+   "recruited": 0,
+   "art": "mute",
+   "bend": 0.0,
+   "vibrato": 0.0,
+   "string": 1,
+   "fret": 0,
+   "start": 21.74,
+   "dur": 0.2885,
+   "velocity": 0.2,
+   "hz": 110.0,
+   "novelty": 0.143
+  },
+  {
+   "midi": 45,
+   "voices": [
+    45
+   ],
+   "recruited": 0,
+   "art": "legato",
+   "bend": 0.0,
+   "vibrato": 0.0,
+   "string": 1,
+   "fret": 0,
+   "start": 21.8,
+   "dur": 0.2885,
+   "velocity": 0.2777777777777778,
+   "hz": 110.0,
+   "novelty": 0.039
+  },
+  {
+   "midi": 40,
+   "voices": [
+    40
+   ],
+   "recruited": 0,
+   "art": "legato",
+   "bend": 0.0,
+   "vibrato": 0.0,
+   "string": 0,
+   "fret": 0,
+   "start": 21.86,
+   "dur": 0.2885,
+   "velocity": 0.2,
+   "hz": 82.41,
+   "novelty": 0.562
+  },
+  {
+   "midi": 59,
+   "voices": [
+    59
+   ],
+   "recruited": 0,
+   "art": "mute",
+   "bend": 0.0,
+   "vibrato": 0.0,
+   "string": 4,
+   "fret": 0,
+   "start": 22.1,
+   "dur": 0.2885,
+   "velocity": 0.2,
+   "hz": 246.94,
+   "novelty": 1.0
+  },
+  {
+   "midi": 50,
+   "voices": [
+    50,
+    55,
+    58,
+    62,
+    67
+   ],
+   "recruited": 4,
+   "art": "strum",
+   "bend": 0.0,
+   "vibrato": 0.0,
+   "string": 2,
+   "fret": 0,
+   "start": 22.42,
+   "dur": 0.2885,
+   "velocity": 0.2,
+   "hz": 146.83,
+   "novelty": 0.668
+  },
+  {
+   "midi": 50,
+   "voices": [
+    50,
+    53,
+    57,
+    60,
+    63
+   ],
+   "recruited": 4,
+   "art": "strum",
+   "bend": 0.0,
+   "vibrato": 0.0,
+   "string": 2,
+   "fret": 0,
+   "start": 23.24,
+   "dur": 0.4167,
+   "velocity": 0.2,
+   "hz": 146.83,
+   "novelty": 0.024
+  },
+  {
+   "midi": 55,
+   "voices": [
+    55,
+    58,
+    62,
+    65
+   ],
+   "recruited": 3,
+   "art": "strum",
+   "bend": 0.0,
+   "vibrato": 0.0,
+   "string": 2,
+   "fret": 5,
+   "start": 24.32,
+   "dur": 0.4167,
+   "velocity": 0.2,
+   "hz": 196.0,
+   "novelty": 0.474
+  },
+  {
+   "midi": 50,
+   "voices": [
+    50,
+    53,
+    57,
+    60,
+    63,
+    67
+   ],
+   "recruited": 5,
+   "art": "strum",
+   "bend": 1.0,
+   "vibrato": 0.0,
+   "string": 2,
+   "fret": 0,
+   "start": 24.8,
+   "dur": 0.4167,
+   "velocity": 0.2222222222222222,
+   "hz": 146.83,
+   "novelty": 0.504
+  },
+  {
+   "midi": 50,
+   "voices": [
+    50,
+    53,
+    57,
+    60
+   ],
+   "recruited": 3,
+   "art": "strum",
+   "bend": 0.0,
+   "vibrato": 0.0,
+   "string": 2,
+   "fret": 0,
+   "start": 24.96,
+   "dur": 0.4167,
+   "velocity": 0.2,
+   "hz": 146.83,
+   "novelty": 0.018
+  },
+  {
+   "midi": 45,
+   "voices": [
+    45
+   ],
+   "recruited": 0,
+   "art": "mute",
+   "bend": 0.0,
+   "vibrato": 0.0,
+   "string": 1,
+   "fret": 0,
+   "start": 25.08,
+   "dur": 0.4167,
+   "velocity": 0.2,
+   "hz": 110.0,
+   "novelty": 0.113
+  },
+  {
+   "midi": 50,
+   "voices": [
+    50
+   ],
+   "recruited": 0,
+   "art": "mute",
+   "bend": 0.0,
+   "vibrato": 0.0,
+   "string": 2,
+   "fret": 0,
+   "start": 25.18,
+   "dur": 0.4167,
+   "velocity": 0.2,
+   "hz": 146.83,
+   "novelty": 0.088
+  },
+  {
+   "midi": 45,
+   "voices": [
+    45
+   ],
+   "recruited": 0,
+   "art": "legato",
+   "bend": 0.0,
+   "vibrato": 0.0,
+   "string": 1,
+   "fret": 0,
+   "start": 25.24,
+   "dur": 0.4167,
+   "velocity": 0.2,
+   "hz": 110.0,
+   "novelty": 0.058
+  },
+  {
+   "midi": 48,
+   "voices": [
+    48
+   ],
+   "recruited": 0,
+   "art": "mute",
+   "bend": 0.0,
+   "vibrato": 0.0,
+   "string": 1,
+   "fret": 3,
+   "start": 25.6,
+   "dur": 0.4167,
+   "velocity": 0.2,
+   "hz": 130.81,
+   "novelty": 1.0
+  },
+  {
+   "midi": 46,
+   "voices": [
+    46
+   ],
+   "recruited": 0,
+   "art": "legato",
+   "bend": 0.0,
+   "vibrato": 0.0,
+   "string": 1,
+   "fret": 1,
+   "start": 25.64,
+   "dur": 0.4167,
+   "velocity": 0.2,
+   "hz": 116.54,
+   "novelty": 0.691
+  },
+  {
+   "midi": 53,
+   "voices": [
+    53
+   ],
+   "recruited": 0,
+   "art": "legato",
+   "bend": 0.0,
+   "vibrato": 0.0,
+   "string": 2,
+   "fret": 3,
+   "start": 25.7,
+   "dur": 0.4167,
+   "velocity": 0.2222222222222222,
+   "hz": 174.61,
+   "novelty": 0.845
+  },
+  {
+   "midi": 45,
+   "voices": [
+    45,
+    48,
+    51,
+    55,
+    58,
+    62
+   ],
+   "recruited": 5,
+   "art": "strum",
+   "bend": 0.0,
+   "vibrato": 0.0,
+   "string": 1,
+   "fret": 0,
+   "start": 26.02,
+   "dur": 0.4167,
+   "velocity": 0.2,
+   "hz": 110.0,
+   "novelty": 1.0
+  },
+  {
+   "midi": 58,
+   "voices": [
+    58,
+    65,
+    70
+   ],
+   "recruited": 2,
+   "art": "mute",
+   "bend": 1.0,
+   "vibrato": 0.35,
+   "string": 3,
+   "fret": 3,
+   "start": 26.32,
+   "dur": 0.4167,
+   "velocity": 0.2,
+   "hz": 233.08,
+   "novelty": 0.607
+  },
+  {
+   "midi": 55,
+   "voices": [
+    55
+   ],
+   "recruited": 0,
+   "art": "pick",
+   "bend": 1.0,
+   "vibrato": 0.0,
+   "string": 3,
+   "fret": 0,
+   "start": 26.72,
+   "dur": 0.4167,
+   "velocity": 0.6111111111111112,
+   "hz": 196.0,
+   "novelty": 1.0
+  },
+  {
+   "midi": 50,
+   "voices": [
+    50
+   ],
+   "recruited": 0,
+   "art": "pick",
+   "bend": 1.0,
+   "vibrato": 0.35,
+   "string": 2,
+   "fret": 0,
+   "start": 26.98,
+   "dur": 0.4167,
+   "velocity": 0.3888888888888889,
+   "hz": 146.83,
+   "novelty": 0.297
+  },
+  {
+   "midi": 55,
+   "voices": [
+    55,
+    58,
+    62,
+    65,
+    69,
+    72
+   ],
+   "recruited": 5,
+   "art": "strum",
+   "bend": 0.0,
+   "vibrato": 0.0,
+   "string": 3,
+   "fret": 0,
+   "start": 27.06,
+   "dur": 0.4167,
+   "velocity": 0.2,
+   "hz": 196.0,
+   "novelty": 0.293
+  },
+  {
+   "midi": 62,
+   "voices": [
+    62
+   ],
+   "recruited": 0,
+   "art": "mute",
+   "bend": 0.0,
+   "vibrato": 0.0,
+   "string": 4,
+   "fret": 3,
+   "start": 27.44,
+   "dur": 0.4167,
+   "velocity": 0.2222222222222222,
+   "hz": 293.66,
+   "novelty": 1.0
+  },
+  {
+   "midi": 45,
+   "voices": [
+    45,
+    48,
+    51,
+    55,
+    58,
+    62
+   ],
+   "recruited": 5,
+   "art": "strum",
+   "bend": 0.0,
+   "vibrato": 0.0,
+   "string": 1,
+   "fret": 0,
+   "start": 27.74,
+   "dur": 0.4167,
+   "velocity": 0.2,
+   "hz": 110.0,
+   "novelty": 1.0
+  },
+  {
+   "midi": 53,
+   "voices": [
+    53
+   ],
+   "recruited": 0,
+   "art": "mute",
+   "bend": 0.0,
+   "vibrato": 0.0,
+   "string": 2,
+   "fret": 3,
+   "start": 27.86,
+   "dur": 0.4167,
+   "velocity": 0.2,
+   "hz": 174.61,
+   "novelty": 1.0
+  },
+  {
+   "midi": 53,
+   "voices": [
+    53
+   ],
+   "recruited": 0,
+   "art": "legato",
+   "bend": 0.0,
+   "vibrato": 0.0,
+   "string": 2,
+   "fret": 3,
+   "start": 27.9,
+   "dur": 0.4167,
+   "velocity": 0.2,
+   "hz": 174.61,
+   "novelty": 1.0
+  },
+  {
+   "midi": 48,
+   "voices": [
+    48
+   ],
+   "recruited": 0,
+   "art": "mute",
+   "bend": 0.0,
+   "vibrato": 0.0,
+   "string": 1,
+   "fret": 3,
+   "start": 27.98,
+   "dur": 0.4167,
+   "velocity": 0.2,
+   "hz": 130.81,
+   "novelty": 0.813
+  },
+  {
+   "midi": 48,
+   "voices": [
+    48
+   ],
+   "recruited": 0,
+   "art": "legato",
+   "bend": 0.0,
+   "vibrato": 0.0,
+   "string": 1,
+   "fret": 3,
+   "start": 28.02,
+   "dur": 0.4167,
+   "velocity": 0.2,
+   "hz": 130.81,
+   "novelty": 0.813
+  },
+  {
+   "midi": 48,
+   "voices": [
+    48
+   ],
+   "recruited": 0,
+   "art": "mute",
+   "bend": 0.0,
+   "vibrato": 0.0,
+   "string": 1,
+   "fret": 3,
+   "start": 28.12,
+   "dur": 0.4167,
+   "velocity": 0.2,
+   "hz": 130.81,
+   "novelty": 0.409
+  },
+  {
+   "midi": 48,
+   "voices": [
+    48
+   ],
+   "recruited": 0,
+   "art": "mute",
+   "bend": 0.0,
+   "vibrato": 0.0,
+   "string": 1,
+   "fret": 3,
+   "start": 28.28,
+   "dur": 0.4167,
+   "velocity": 0.3333333333333333,
+   "hz": 130.81,
+   "novelty": 0.207
+  },
+  {
+   "midi": 53,
+   "voices": [
+    53
+   ],
+   "recruited": 0,
+   "art": "legato",
+   "bend": 0.0,
+   "vibrato": 0.0,
+   "string": 2,
+   "fret": 3,
+   "start": 28.34,
+   "dur": 0.4167,
+   "velocity": 0.2,
+   "hz": 174.61,
+   "novelty": 1.0
+  },
+  {
+   "midi": 48,
+   "voices": [
+    48
+   ],
+   "recruited": 0,
+   "art": "mute",
+   "bend": 0.0,
+   "vibrato": 0.0,
+   "string": 1,
+   "fret": 3,
+   "start": 28.6,
+   "dur": 0.4167,
+   "velocity": 0.2,
+   "hz": 130.81,
+   "novelty": 0.42
+  },
+  {
+   "midi": 48,
+   "voices": [
+    48
+   ],
+   "recruited": 0,
+   "art": "mute",
+   "bend": 0.0,
+   "vibrato": 0.0,
+   "string": 1,
+   "fret": 3,
+   "start": 29.06,
+   "dur": 0.4167,
+   "velocity": 0.2,
+   "hz": 130.81,
+   "novelty": 0.115
+  },
+  {
+   "midi": 48,
+   "voices": [
+    48
+   ],
+   "recruited": 0,
+   "art": "mute",
+   "bend": 0.0,
+   "vibrato": 0.0,
+   "string": 1,
+   "fret": 3,
+   "start": 29.18,
+   "dur": 0.4167,
+   "velocity": 0.2,
+   "hz": 130.81,
+   "novelty": 0.058
+  },
+  {
+   "midi": 53,
+   "voices": [
+    53,
+    60,
+    65
+   ],
+   "recruited": 2,
+   "art": "mute",
+   "bend": 0.0,
+   "vibrato": 0.0,
+   "string": 2,
+   "fret": 3,
+   "start": 29.28,
+   "dur": 0.4167,
+   "velocity": 0.2,
+   "hz": 174.61,
+   "novelty": 0.519
+  },
+  {
+   "midi": 60,
+   "voices": [
+    60,
+    67
+   ],
+   "recruited": 1,
+   "art": "mute",
+   "bend": 0.0,
+   "vibrato": 0.0,
+   "string": 3,
+   "fret": 5,
+   "start": 29.48,
+   "dur": 0.4167,
+   "velocity": 0.2,
+   "hz": 261.63,
+   "novelty": 1.0
+  },
+  {
+   "midi": 60,
+   "voices": [
+    60
+   ],
+   "recruited": 0,
+   "art": "legato",
+   "bend": 0.0,
+   "vibrato": 0.0,
+   "string": 2,
+   "fret": 10,
+   "start": 29.52,
+   "dur": 0.4167,
+   "velocity": 0.2,
+   "hz": 261.63,
+   "novelty": 0.031
+  },
+  {
+   "midi": 69,
+   "voices": [
+    69
+   ],
+   "recruited": 0,
+   "art": "mute",
+   "bend": 1.0,
+   "vibrato": 0.0,
+   "string": 3,
+   "fret": 14,
+   "start": 29.66,
+   "dur": 0.4167,
+   "velocity": 0.2777777777777778,
+   "hz": 440.0,
+   "novelty": 1.0
+  },
+  {
+   "midi": 55,
+   "voices": [
+    55
+   ],
+   "recruited": 0,
+   "art": "legato",
+   "bend": 0.0,
+   "vibrato": 0.0,
+   "string": 2,
+   "fret": 5,
+   "start": 29.72,
+   "dur": 0.4167,
+   "velocity": 0.2,
+   "hz": 196.0,
+   "novelty": 1.0
+  },
+  {
+   "midi": 55,
+   "voices": [
+    55,
+    62
+   ],
+   "recruited": 1,
+   "art": "mute",
+   "bend": 0.0,
+   "vibrato": 0.0,
+   "string": 3,
+   "fret": 0,
+   "start": 29.84,
+   "dur": 0.4167,
+   "velocity": 0.2,
+   "hz": 196.0,
+   "novelty": 0.698
+  },
+  {
+   "midi": 50,
+   "voices": [
+    50,
+    53
+   ],
+   "recruited": 1,
+   "art": "legato",
+   "bend": 0.0,
+   "vibrato": 0.0,
+   "string": 2,
+   "fret": 0,
+   "start": 29.88,
+   "dur": 0.4167,
+   "velocity": 0.2,
+   "hz": 146.83,
+   "novelty": 0.199
+  },
+  {
+   "midi": 55,
+   "voices": [
+    55,
+    62
+   ],
+   "recruited": 1,
+   "art": "mute",
+   "bend": 1.0,
+   "vibrato": 0.0,
+   "string": 3,
+   "fret": 0,
+   "start": 29.98,
+   "dur": 0.4167,
+   "velocity": 0.2,
+   "hz": 196.0,
+   "novelty": 0.197
+  }
+ ],
+ "sections": [
+  {
+   "at": 0.0,
+   "section": 0,
+   "name": "quiet loud",
+   "key": "F",
+   "scale": "aeolian",
+   "tempo": 118,
+   "origin": "original, written in the idiom of Nirvana"
+  },
+  {
+   "at": 7.5,
+   "section": 1,
+   "name": "gallop",
+   "key": "E",
+   "scale": "aeolian",
+   "tempo": 168,
+   "origin": "original, written in the idiom of Iron Maiden"
+  },
+  {
+   "at": 15.0,
+   "section": 2,
+   "name": "twelve bar",
+   "key": "E",
+   "scale": "blues",
+   "tempo": 104,
+   "origin": "original, written in the idiom of the blues the other three came out of"
+  },
+  {
+   "at": 22.5,
+   "section": 3,
+   "name": "slow burn",
+   "key": "G",
+   "scale": "aeolian",
+   "tempo": 72,
+   "origin": "original, written in the idiom of Black Sabbath"
+  }
+ ],
+ "report": {
+  "notes": 169,
+  "in_key": 0.87,
+  "on_beat": 0.118,
+  "distinct": 20,
+  "range": [
+   40,
+   69
+  ],
+  "riff_hits": 31,
+  "new_hits": 116,
+  "distinct_moves": 85,
+  "chords": 79,
+  "techniques": {
+   "pick": 2,
+   "strum": 50,
+   "legato": 37,
+   "mute": 80,
+   "slide": 0
+  },
+  "bends": 31,
+  "max_voices": 6,
+  "novelty_now": 0.52
+ },
+ "seconds": 29.92,
+ "strike_hz": 25.0,
+ "composed_wall_min": 20.84
+}

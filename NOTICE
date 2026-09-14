@@ -1,0 +1,18 @@
+fly-guitar
+==========
+
+The code in this repository is MIT licensed - see LICENSE. That licence covers
+the code in this repository and nothing else.
+
+This is a fork of https://github.com/fruitflydev/flycoinrh, which is where the
+simulator (flysim.py), the mushroom body (mushroom.py) and the connectome build
+step (build_graph.py) come from. The MIT copyright notice in LICENSE is theirs
+and stays.
+
+The connectome is not ours to license. The male Drosophila CNS dataset is
+(c) HHMI Janelia FlyEM, the Cambridge Connectomics Group and Google Research,
+released under CC-BY 4.0, and it stays under CC-BY wherever it goes. If you
+fork this, keep that attribution: it is the whole reason any of this is real.
+
+three.js (r149) is loaded from a CDN at runtime and is MIT licensed, (c) the
+three.js authors.

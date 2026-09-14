@@ -1,0 +1,14 @@
+# The fly plays electric guitar.
+#
+#   py -m pip install -r requirements-guitar.txt
+#
+# numpy/scipy/pandas do the simulation; pyarrow reads the connectome feather
+# files; fastapi/uvicorn/websockets serve the page.  three.js comes from a CDN
+# at runtime, so there is no JS build step and nothing to npm install.
+numpy>=1.24
+scipy>=1.10
+pandas>=2.0
+pyarrow>=14.0
+fastapi>=0.110
+uvicorn>=0.27
+websockets>=12.0

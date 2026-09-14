@@ -1,0 +1,26 @@
+# 1.1 GB of connectome downloaded from Janelia's public bucket. GUITAR.md says
+# exactly how to fetch it, and build_graph.py turns it into build/graph.npz.
+data/
+
+# Derived artefacts, recordings, scratch.
+# build/* rather than build/: git never descends into an excluded DIRECTORY,
+# so a '!build/thing' exception below can only work if the directory itself
+# stays listed and its contents are what get excluded.
+build/*
+scratch/
+__pycache__/
+.pytest_cache/
+.venv/
+.venv*/
+*.pyc
+*.wav
+*.mp4
+*.webm
+*.log
+
+# Small, reproducible, but they ARE results - these ship.
+!build/guitar_corpus.json
+!build/guitar_probe.json
+!build/guitar_gains.npz
+!build/mb_sides.json
+!build/set_piece*.json

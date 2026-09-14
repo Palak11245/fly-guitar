@@ -1,0 +1,277 @@
+{
+  "neurons": 165122,
+  "steps": 100,
+  "driver": "JO-B",
+  "census": {
+    "JO (all)": {
+      "n": 673,
+      "patterns_matched": [
+        "^JO[-_]"
+      ],
+      "types": [
+        "JO-A-unclear",
+        "JO-A1",
+        "JO-A2",
+        "JO-A3",
+        "JO-A4",
+        "JO-B-unclear",
+        "JO-B1_a",
+        "JO-B1_b",
+        "JO-B1_c",
+        "JO-B2",
+        "JO-B3",
+        "JO-B4_a"
+      ]
+    },
+    "JO-A": {
+      "n": 50,
+      "patterns_matched": [
+        "^JO[-_]?A"
+      ],
+      "types": [
+        "JO-A-unclear",
+        "JO-A1",
+        "JO-A2",
+        "JO-A3",
+        "JO-A4"
+      ]
+    },
+    "JO-B": {
+      "n": 89,
+      "patterns_matched": [
+        "^JO[-_]?B"
+      ],
+      "types": [
+        "JO-B-unclear",
+        "JO-B1_a",
+        "JO-B1_b",
+        "JO-B1_c",
+        "JO-B2",
+        "JO-B3",
+        "JO-B4_a",
+        "JO-B4_b"
+      ]
+    },
+    "JO-C": {
+      "n": 68,
+      "patterns_matched": [
+        "^JO[-_]?C"
+      ],
+      "types": [
+        "JO-CA1",
+        "JO-CA2",
+        "JO-CL",
+        "JO-CM"
+      ]
+    },
+    "JO-D": {
+      "n": 8,
+      "patterns_matched": [
+        "^JO[-_]?D"
+      ],
+      "types": [
+        "JO-DA",
+        "JO-DP"
+      ]
+    },
+    "JO-E": {
+      "n": 267,
+      "patterns_matched": [
+        "^JO[-_]?E"
+      ],
+      "types": [
+        "JO-ED1",
+        "JO-ED2_a",
+        "JO-ED2_b",
+        "JO-ED2_c",
+        "JO-EV1",
+        "JO-EV2",
+        "JO-EV3",
+        "JO-EV4",
+        "JO-EV5",
+        "JO-EV6"
+      ]
+    },
+    "DNa02": {
+      "n": 2,
+      "patterns_matched": [
+        "^DNa02"
+      ],
+      "types": [
+        "DNa02"
+      ]
+    },
+    "DNa01": {
+      "n": 2,
+      "patterns_matched": [
+        "^DNa01"
+      ],
+      "types": [
+        "DNa01"
+      ]
+    },
+    "DNp09": {
+      "n": 2,
+      "patterns_matched": [
+        "^DNp09"
+      ],
+      "types": [
+        "DNp09"
+      ]
+    },
+    "MDN": {
+      "n": 4,
+      "patterns_matched": [
+        "^MDN"
+      ],
+      "types": [
+        "MDN"
+      ]
+    },
+    "wing MN b1": {
+      "n": 2,
+      "patterns_matched": [
+        "^b1\\b",
+        "\\bb1 MN\\b"
+      ],
+      "types": [
+        "b1 MN"
+      ]
+    },
+    "wing MN b2": {
+      "n": 2,
+      "patterns_matched": [
+        "^b2\\b",
+        "\\bb2 MN\\b"
+      ],
+      "types": [
+        "b2 MN"
+      ]
+    },
+    "wing MN hg1": {
+      "n": 2,
+      "patterns_matched": [
+        "^hg1\\b"
+      ],
+      "types": [
+        "hg1 MN"
+      ]
+    },
+    "wing MN hg2": {
+      "n": 2,
+      "patterns_matched": [
+        "^hg2\\b"
+      ],
+      "types": [
+        "hg2 MN"
+      ]
+    },
+    "wing MN hg3": {
+      "n": 2,
+      "patterns_matched": [
+        "^hg3\\b"
+      ],
+      "types": [
+        "hg3 MN"
+      ]
+    },
+    "wing MN hg4": {
+      "n": 2,
+      "patterns_matched": [
+        "^hg4\\b"
+      ],
+      "types": [
+        "hg4 MN"
+      ]
+    },
+    "wing MN ps1": {
+      "n": 2,
+      "patterns_matched": [
+        "^ps1\\b"
+      ],
+      "types": [
+        "ps1 MN"
+      ]
+    },
+    "pIP10": {
+      "n": 2,
+      "patterns_matched": [
+        "^pIP10"
+      ],
+      "types": [
+        "pIP10"
+      ]
+    },
+    "MN9 (control)": {
+      "n": 2,
+      "patterns_matched": [
+        "^MN9\\b"
+      ],
+      "types": [
+        "MN9"
+      ]
+    }
+  },
+  "sweep": {
+    "0.0": {
+      "DNa02": 0.0,
+      "DNa01": 0.0,
+      "DNp09": 0.0,
+      "MDN": 0.0,
+      "wing MN b1": 0.0,
+      "wing MN b2": 0.0,
+      "wing MN hg1": 0.0,
+      "wing MN hg2": 0.0,
+      "wing MN hg3": 0.0,
+      "wing MN hg4": 0.0,
+      "wing MN ps1": 0.0,
+      "pIP10": 0.0,
+      "MN9 (control)": 0.0
+    },
+    "50.0": {
+      "DNa02": 300.0,
+      "DNa01": 0.0,
+      "DNp09": 25.0,
+      "MDN": 12.5,
+      "wing MN b1": 200.0,
+      "wing MN b2": 400.0,
+      "wing MN hg1": 400.0,
+      "wing MN hg2": 25.0,
+      "wing MN hg3": 50.0,
+      "wing MN hg4": 50.0,
+      "wing MN ps1": 400.0,
+      "pIP10": 0.0,
+      "MN9 (control)": 0.0
+    },
+    "100.0": {
+      "DNa02": 400.0,
+      "DNa01": 0.0,
+      "DNp09": 25.0,
+      "MDN": 100.0,
+      "wing MN b1": 150.0,
+      "wing MN b2": 400.0,
+      "wing MN hg1": 400.0,
+      "wing MN hg2": 25.0,
+      "wing MN hg3": 50.0,
+      "wing MN hg4": 150.0,
+      "wing MN ps1": 150.0,
+      "pIP10": 50.0,
+      "MN9 (control)": 0.0
+    },
+    "200.0": {
+      "DNa02": 350.0,
+      "DNa01": 0.0,
+      "DNp09": 25.0,
+      "MDN": 0.0,
+      "wing MN b1": 400.0,
+      "wing MN b2": 450.0,
+      "wing MN hg1": 450.0,
+      "wing MN hg2": 50.0,
+      "wing MN hg3": 50.0,
+      "wing MN hg4": 150.0,
+      "wing MN ps1": 300.0,
+      "pIP10": 50.0,
+      "MN9 (control)": 0.0
+    }
+  }
+}
